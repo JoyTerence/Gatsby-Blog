@@ -12,6 +12,12 @@ import { StaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 
+import { IconContext } from "react-icons";
+import { GoOctoface } from "react-icons/go";
+import { FaLinkedin, FaUserAlt, FaMedium, FaFacebook } from "react-icons/fa";
+import { GiSpy } from "react-icons/gi";
+import { MdContactMail } from "react-icons/md";
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -35,10 +41,25 @@ const Layout = ({ children }) => (
           }}
         >
           <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <footer style={{display: "flex", justifyContent: "space-between"}}>
+            <IconContext.Provider value={{color:`black`, size: `2em`}}>
+              < GiSpy />
+            </IconContext.Provider>
+            <IconContext.Provider value={{color:`#0077b5`, size: `2em`}}>
+              < FaLinkedin />
+            </IconContext.Provider>
+            <IconContext.Provider value={{ color:`#24292e`, size: `2em`}}>
+              < GoOctoface />
+            </IconContext.Provider>
+            <IconContext.Provider value={{ color:`black`, size: `2em`}}>
+              < FaMedium />
+            </IconContext.Provider>
+            <IconContext.Provider value={{ color:`#365da8`, size: `2em`}}>
+              < FaFacebook />
+            </IconContext.Provider>
+            <IconContext.Provider value={{ color:`#e03434`, size: `2em`}}>
+              < MdContactMail />
+            </IconContext.Provider>
           </footer>
         </div>
       </>

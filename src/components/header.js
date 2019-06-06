@@ -5,22 +5,23 @@ import React from "react"
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
       marginBottom: `1.45rem`,
+      height: 250
     }}
   >
     <div
       style={{
         margin: `0 auto`,
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        paddingTop: `10.45rem`,
+        paddingBottom: `0.5rem`
       }}
     >
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
-            color: `white`,
+            color: `black`,
             textDecoration: `none`,
           }}
         >
@@ -28,6 +29,14 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
     </div>
+    <hr
+      style={{
+        maxWidth: 1000,
+        margin: `0 auto`,
+        height: 2,
+        backgroundColor: `black`
+      }}
+    />
   </header>
 )
 

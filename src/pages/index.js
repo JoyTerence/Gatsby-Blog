@@ -7,14 +7,12 @@ import SEO from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <SEO title="Home" keywords={[`portfolio`, `gatsby`, `application`, `react`]} />
+    <p>On a quest to know all there is!!</p>
+    <p> I love to solve problems, Code, DoTA and play the Uke.</p>
+    <p style={{textAlign: `justify`}}>Currently employed as Senior Technical Associate @ Avaya Telecommunications, Bengaluru working on Amazing Unified Communication products such as Avaya Equinox, Zang.
+      Worked on CI/CD, SSO for Avaya Equinox and added Voice control feature for the Avaya WebRTC.
+    </p>
   </Layout>
 )
 
