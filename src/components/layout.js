@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
@@ -42,24 +42,36 @@ const Layout = ({ children }) => (
         >
           <main>{children}</main>
           <footer style={{display: "flex", justifyContent: "space-between"}}>
-            <IconContext.Provider value={{color:`black`, size: `2em`}}>
-              < GiSpy />
-            </IconContext.Provider>
-            <IconContext.Provider value={{color:`#0077b5`, size: `2em`}}>
-              < FaLinkedin />
-            </IconContext.Provider>
-            <IconContext.Provider value={{ color:`#24292e`, size: `2em`}}>
-              < GoOctoface />
-            </IconContext.Provider>
-            <IconContext.Provider value={{ color:`black`, size: `2em`}}>
-              < FaMedium />
-            </IconContext.Provider>
-            <IconContext.Provider value={{ color:`#365da8`, size: `2em`}}>
-              < FaFacebook />
-            </IconContext.Provider>
-            <IconContext.Provider value={{ color:`#e03434`, size: `2em`}}>
-              < MdContactMail />
-            </IconContext.Provider>
+            <Link to="/" target="_blank">
+              <IconContext.Provider value={{color:`black`, size: `2em`}}>
+                < GiSpy /> 
+              </IconContext.Provider>
+            </Link>
+            <a href="https://in.linkedin.com/in/joyterencebarnes" target="_blank">
+              <IconContext.Provider value={{color:`#0077b5`, size: `2em`}}>
+                < FaLinkedin />
+              </IconContext.Provider>
+            </a>
+            <a href="https://github.com/JoyTerence" target="_blank">
+              <IconContext.Provider value={{ color:`#24292e`, size: `2em`}}>
+                < GoOctoface />
+              </IconContext.Provider>
+            </a>
+            <a href="https://medium.com/@joyterencebarnes" target="_blank">
+              <IconContext.Provider value={{ color:`black`, size: `2em`}}>
+                < FaMedium />
+              </IconContext.Provider>
+            </a>
+            <a href="https://www.facebook.com/joy.terence.9" target="_blank">
+              <IconContext.Provider value={{ color:`#365da8`, size: `2em`}}>
+                < FaFacebook />
+              </IconContext.Provider>
+            </a>
+            <Link to="/contact-me">
+              <IconContext.Provider value={{ color:`#e03434`, size: `2em`}}>
+                < MdContactMail />
+              </IconContext.Provider>
+            </Link>
           </footer>
         </div>
       </>
