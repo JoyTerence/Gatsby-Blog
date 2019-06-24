@@ -1,9 +1,6 @@
 import React from "react"
 
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
@@ -18,4 +15,3 @@ const IndexPage = () => (
 )
 
 export default IndexPage
->>>>>>> 6ef51aa0a82aad88d0c5bb99532247137244da22

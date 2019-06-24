@@ -37,6 +37,13 @@ module.exports = {
         path: `${__dirname}/content`,
         name: "pages",
       }
-    }
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./content/projects`,
+      },
+    },
   ],
 }
