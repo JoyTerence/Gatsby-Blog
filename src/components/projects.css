@@ -1,0 +1,13 @@
+.description {
+    flex:2;
+    overflow: hidden;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: normal;
+    margin-bottom: 0.5em;
+}

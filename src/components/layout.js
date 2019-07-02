@@ -42,7 +42,7 @@ const Layout = ({ children }) => (
         >
           <main>{children}</main>
         </div>
-        <footer style={{display: "flex", justifyContent: "space-between", margin:`0 auto`, maxWidth: 960}}>
+        <footer style={{display: "flex", justifyContent: "space-between", margin:`0 auto`, maxWidth: 960, padding: `1em`}}>
           <Link to="/" target="_blank">
             <IconContext.Provider value={{color:`black`, size: `2em`}}>
               < GiSpy /> 
