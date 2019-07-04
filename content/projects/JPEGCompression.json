@@ -1,0 +1,5 @@
+{
+    "Name": "JPEG Compression",
+    "Description": "Implemented JPEG Compression algorithm in both C++ as well as Python",
+    "Link": "https://github.com/JoyTerence/Image-Compression"
+}

@@ -33,24 +33,7 @@
 .projectLink {
     flex: 1;
     margin: 0 auto;
-    padding: 0.2em;
+    padding-bottom: 0.5em;
     max-height: 2em;
 }
 
-span {
-    -webkit-transition: content 2s; /* For Safari 3.1 to 6.0 */
-    transition: content 2s;
-    position: relative;
-    content: "GitHub";
-}
-
-
-.projectCard:hover span {
-    display: none;
-}
-
-.projectCard:hover button:after{
-    font-size: 1em;
-    /* content: "Check in GitHub"; */
-    padding: 1.2em;
-}

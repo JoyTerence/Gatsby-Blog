@@ -1,0 +1,5 @@
+{
+    "Name" : "Emotion Recognizer",
+    "Description" : "A Convolution Neural network (Tensorflow) that recognizes emotion from image.",
+    "Link" : "https://github.com/JoyTerence/Emotion-Recognizer"
+}

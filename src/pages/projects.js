@@ -1,18 +1,12 @@
 import React from "react"
 
 import "../components/projects.css"
-
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import { graphql } from "gatsby"
-
-import { IconContext } from "react-icons"
-import { GoLogoGithub } from "react-icons/go"
 
 import ProjectCard from "../components/card"
 
@@ -21,7 +15,7 @@ var _ = require('lodash');
 const IndexPage = ({ data }) => {
 
     var dataNodes = data.allProjectsJson.edges.map(({ node }) => (
-        < ProjectCard project={node} />
+        < ProjectCard key = {node.id} project={node} />
     ))
 
     // console.log("*****************")
@@ -50,7 +44,7 @@ export const query = graphql`
             edges {
                 node {
                     id
-                    name
+                    Name
                     Description
                     Link
                 }
