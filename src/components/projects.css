@@ -1,13 +1,56 @@
-.description {
-    flex:2;
+.projectDescription {
+    flex: 10;
     overflow: hidden;
-    /* autoprefixer: off */
-    -webkit-box-orient: vertical;
-    /* autoprefixer: on */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     text-overflow: ellipsis;
     white-space: normal;
-    line-height: normal;
-    margin-bottom: 0.5em;
+    line-height: inherit;
+    padding: 0.2em;
+    margin: 0 auto;
+    text-align: justify;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+}
+
+.projectName {
+    flex: 1;
+    text-align: center;
+}
+
+.projectCard {
+    box-shadow: 0.2em 0.2em;
+    height: 10em;
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectCard:hover {
+    box-shadow: 0.5em 0.5em;
+}
+
+.projectLink {
+    flex: 1;
+    margin: 0 auto;
+    padding: 0.2em;
+}
+
+span {
+    -webkit-transition: content 2s; /* For Safari 3.1 to 6.0 */
+    transition: content 2s;
+}
+
+.projectCard .projeckLink button span {
+    position: relative;
+    content: "GitHub";
+}
+
+.projectCard:hover .projeckLink button span {
+    display: none;
+}
+
+.projectCard:hover .projectLink button:after{
+    font-size: 1.5em;
+    content: "Check in GitHub";
 }

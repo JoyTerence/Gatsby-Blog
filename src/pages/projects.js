@@ -1,13 +1,13 @@
 import React from "react"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-
 import "../components/projects.css"
 
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 import { graphql } from "gatsby"
 
@@ -17,11 +17,12 @@ const IndexPage = ({ data }) => {
 
     var dataNodes = data.allProjectsJson.edges.map(({ node }) => (
         <div key={node.id} style={{flex: 1}}>
-            <Card style={{ height: `10em`, width: '18rem', display: `flex`, flexDirection: `column`}}>
-                    <Card.Header style={{flex: 1}}>{node.name}</Card.Header>
-                    <Card.Text className="description" style={{flex: 10}}>{node.Description}</Card.Text>
-                    <a href={node.Link} style={{flex: 1, margin: `0 auto`, padding: `0.2em`}}>
-                        <Button variant="link" size="sm">{node.Link}</Button>
+            <Card bg="light" border="primary" className="projectCard">
+                    <Card.Header className="projectName">{node.name}</Card.Header>
+                    <Card.Text className="projectDescription">{node.Description}</Card.Text>
+                    {console.log(node.Link)}
+                    <a href={node.Link} className="projectLink">
+                        <Button variant="link" size="sm"> <span>Github</span> </Button>
                     </a>
             </Card>
         </div>
