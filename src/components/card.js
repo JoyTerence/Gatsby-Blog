@@ -1,5 +1,6 @@
 import React from "react"
 
+import { Col } from "react-bootstrap"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -26,7 +27,7 @@ class ProjectCard extends React.Component {
     render() {
         const node = this.props.project;
         return (
-            <div key={node.id} style={{flex: 1}}>
+            <Col key={node.id} style={{padding: `1em`}}>
                 <Card border="primary" className="projectCard" onMouseEnter={this.onHoverStart} onMouseLeave={this.onHoverEnd}>
                         <Card.Header className="projectName">{node.Name}</Card.Header>
                         <Card.Text className="projectDescription">{node.Description}</Card.Text>
@@ -38,7 +39,7 @@ class ProjectCard extends React.Component {
                             </Button>
                         </a>
                 </Card>
-            </div>
+            </Col>
         )
     }
 }

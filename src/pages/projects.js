@@ -9,20 +9,23 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby"
 
 import ProjectCard from "../components/card"
+import { Row, Col } from "react-bootstrap"
 
 var _ = require('lodash');
 
 const IndexPage = ({ data }) => {
 
     var dataNodes = data.allProjectsJson.edges.map(({ node }) => (
-        < ProjectCard key = {node.id} project={node} />
+        < ProjectCard key = {node.id} project={node} /> 
     ))
 
     // console.log("*****************")
     // console.log(dataNodes)
     
     var divNodes =  _.chunk(dataNodes, 2).map(y => 
-        <div key={Math.random()} style={{flexDirection: `row`, display: `flex`, padding: `2em`}}> {y} </div>
+        <Row key={Math.random()}>
+            {y}
+        </Row>
     )
 
     // console.log("------------------")
