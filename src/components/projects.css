@@ -34,23 +34,23 @@
     flex: 1;
     margin: 0 auto;
     padding: 0.2em;
+    max-height: 2em;
 }
 
 span {
     -webkit-transition: content 2s; /* For Safari 3.1 to 6.0 */
     transition: content 2s;
-}
-
-.projectCard .projeckLink button span {
     position: relative;
     content: "GitHub";
 }
 
-.projectCard:hover .projeckLink button span {
+
+.projectCard:hover span {
     display: none;
 }
 
-.projectCard:hover .projectLink button:after{
-    font-size: 1.5em;
-    content: "Check in GitHub";
+.projectCard:hover button:after{
+    font-size: 1em;
+    /* content: "Check in GitHub"; */
+    padding: 1.2em;
 }
