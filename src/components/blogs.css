@@ -1,3 +1,30 @@
+.container {
+    padding: 0.5em;
+}
+
 .gatsby-image-wrapper {
     flex: 1;
+}
+
+.blog-container {
+    display: flex;
+    height: 8em;
+    flex-direction: row;
+}
+
+.post-left-container {
+    flex: 10;
+    background-color: lightcyan;
+    padding: 0.25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post-right-container {
+    display: flex;
+    flex: 2;
+    background-color: red;
+    margin: 0 auto;
+    min-width: 8em;
 }

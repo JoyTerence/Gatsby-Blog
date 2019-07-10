@@ -19,21 +19,26 @@ const BlogPage = ({ data }) => {
           </h4> */}
           
           {data.allMarkdownRemark.edges.map(({ node }) => (
-            <div key={node.id} style={{padding: `0.5em`}}>
+            <div className="container" key={node.id}>
               <Link style={{textDecoration: `none`}} to={node.fields.slug}>
-                <div style={{display: `flex`, height: `8em`, flexDirection: "row"}}>
-                  <div style={{flex: 10, backgroundColor: "lightcyan", padding: `0.25em`}}>
-                    <h2 style={{color: `black`}}>{node.frontmatter.title}</h2>
-                    <h5>{node.frontmatter.description}</h5>
-                    <p></p>
-                    <div style={{fontSize: `x-small`, padding: `0.5em`, margin: `0em`}}>
+                <div className="blog-container">
+                  <div className="post-left-container">
+                    <div style={{fontSize: `3vh`, fontWeight: 700, flex: 2,color: `black`, height: `fit-content`}}>
+                      <span>{node.frontmatter.title}</span>
+                    </div>
+                    <div style={{fontSize: `2vh`, flex: 4}}>
+                      <span>{node.frontmatter.description}</span>
+                    </div>
+                    <div style={{flex: 1, fontSize: `1vh`, padding: `0.5em`, margin: `0em`}}>
                       <Badge style={{ width: `fit-content`, backgroundColor: `#007bff`}} pill="true" variant="primary">
                         <span style={{color: "black", fontWeight: 700}}>Priam</span>
                       </Badge>
                     </div>
-                    <p style={{fontSize: `x-small`, color: `gray`}}> {node.frontmatter.date} </p>
+                    <div style={{flex: 1, fontSize: `1vh`, color: `gray`}}> <span>{node.frontmatter.date}</span>
+                    
+                    </div>
                   </div>
-                  <div style={{display: `flex`, flex: 2, backgroundColor: "red", margin: `0 auto`}}>
+                  <div className="post-right-container">
                     <Img fluid={data.file.childImageSharp.fluid}/>
                   </div>
                 </div>
