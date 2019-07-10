@@ -53,7 +53,7 @@ const Layout = ({ children }) => (
               < GoRepo />
             </IconContext.Provider>
           </Link>
-          <Link to="/blog">
+          <Link to="/blogs">
             <IconContext.Provider value={{color: `darkgoldenrod`, size: `2em`}}>
               < GiBookshelf />
             </IconContext.Provider>

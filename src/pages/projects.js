@@ -9,7 +9,7 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby"
 
 import ProjectCard from "../components/card"
-import { Row, Col } from "react-bootstrap"
+import { Row } from "react-bootstrap"
 
 var _ = require('lodash');
 
@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
 
     return(
         <Layout>
-            <SEO title="Home" keywords={[`portfolio`, `gatsby`, `application`, `react`]} />
+            <SEO title="Joy Barnes" keywords={[`portfolio`, `gatsby`, `application`, `react`]} />
             {divNodes}
         </Layout>
     )
