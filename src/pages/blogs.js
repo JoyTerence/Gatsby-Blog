@@ -6,7 +6,6 @@ import SEO from "../components/seo"
 
 import Badge from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import "react-bootstrap/dist/react-bootstrap.min.js"
 
 import "../components/blogs.css"
 
