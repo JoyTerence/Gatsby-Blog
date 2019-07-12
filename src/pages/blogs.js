@@ -10,36 +10,39 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import "../components/blogs.css"
 
 const BlogPage = ({ data }) => {
+
+  // TODO: fix layout bug for iPad Pro screens.
+
   return (
     <Layout>
       <SEO title="Page two" />
         <div>
-          {/* <h4>
-            {data.allMarkdownRemark.totalCount} Posts
-          </h4> */}
-          
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div className="container" key={node.id}>
               <Link style={{textDecoration: `none`}} to={node.fields.slug}>
                 <div className="blog-container">
                   <div className="post-left-container">
-                    <div style={{fontSize: `3vh`, fontWeight: 700, flex: 2,color: `black`, height: `fit-content`}}>
-                      <span>{node.frontmatter.title}</span>
+                    <div className="title-container ">
+                      <span className="title">{node.frontmatter.title}</span>
                     </div>
-                    <div style={{fontSize: `2vh`, flex: 4}}>
+                    <div style={{fontSize: `2vh`, flex: 4, paddingLeft: `0.25em`}}>
                       <span>{node.frontmatter.description}</span>
                     </div>
-                    <div style={{flex: 1, fontSize: `1vh`, padding: `0.5em`, margin: `0em`}}>
-                      <Badge style={{ width: `fit-content`, backgroundColor: `#007bff`}} pill="true" variant="primary">
-                        <span style={{color: "black", fontWeight: 700}}>Priam</span>
-                      </Badge>
+                    <div style={{display: `flex`, flexDirection: `row`, flex: 1}}>
+                      {node.frontmatter.tags.map(tag => 
+                          <div key={Math.random()} style={{fontSize: `1vh`, margin: `0.5em`}}>
+                            <Badge style={{ width: `fit-content`, backgroundColor: `#007bff`, paddingLeft: `0.25em`}} pill="true" variant="primary">
+                              <span style={{color: "black", fontWeight: 700}}>{tag}</span>
+                            </Badge>
+                          </div>
+                      )}
                     </div>
-                    <div style={{flex: 1, fontSize: `1vh`, color: `gray`}}> <span>{node.frontmatter.date}</span>
-                    
+                    <div style={{flex: 1, fontSize: `1vh`, color: `gray`, paddingLeft: `0.6em`}}> 
+                      <span>{node.frontmatter.date}</span>
                     </div>
                   </div>
                   <div className="post-right-container">
-                    <Img fluid={data.file.childImageSharp.fluid}/>
+                    <Img fluid={node.frontmatter.image.childImageSharp.fluid}/>
                   </div>
                 </div>
               </Link>  
@@ -63,6 +66,14 @@ export const query = graphql`
             title
             date
             description
+            tags
+            image {
+              childImageSharp {
+                fluid(maxWidth: 200, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           fields {
             slug
@@ -73,7 +84,7 @@ export const query = graphql`
     }
     file(relativePath: { eq: "dummy.png" }) {
       childImageSharp {
-        fluid(maxWidth: 200, quality: 100) {
+        fluid(maxWidth: 100, quality: 50) {
           ...GatsbyImageSharpFluid
         }
       }

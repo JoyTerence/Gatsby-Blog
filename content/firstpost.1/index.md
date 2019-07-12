@@ -2,7 +2,7 @@
 title: My second Blog post
 description: This post is related to the gatsbyjs again!!
 date: '2018-12-2'
-image: ''
+image: ./gatsby-icon.png
 tags: ['javascript','react','gatsby']
 ---
 

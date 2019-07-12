@@ -14,17 +14,37 @@
 
 .post-left-container {
     flex: 10;
-    background-color: lightcyan;
     padding: 0.25em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* border: blue;
+    border-style: groove;
+    border-width: 1px */
+    background-color: darkturquoise;
+    min-width: 10em;
 }
 
 .post-right-container {
     display: flex;
     flex: 2;
-    background-color: red;
     margin: 0 auto;
     min-width: 8em;
+    background-color: darkturquoise;
+}
+
+.title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title-container {
+    font-size: 3vh;
+    font-weight: 700;
+    flex: 3;
+    color: black;
+    padding-left: 0.25em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
