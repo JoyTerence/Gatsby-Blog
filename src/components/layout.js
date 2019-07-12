@@ -15,7 +15,7 @@ import "./layout.css"
 import { IconContext } from "react-icons";
 import { GiSpy, GiBookshelf } from "react-icons/gi";
 import { MdContactMail } from "react-icons/md";
-import { GoRepo } from "react-icons/go";
+import { GoRepo, GoCloudDownload } from "react-icons/go";
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -63,6 +63,11 @@ const Layout = ({ children }) => (
               < MdContactMail />
             </IconContext.Provider>
           </Link>
+          <a href="./joyterencebarnes.pdf" download>
+            <IconContext.Provider value={{ color:`green`, size: `2em`}}>
+                < GoCloudDownload />
+              </IconContext.Provider>
+            </a>
         </footer>
       </>
     )}
