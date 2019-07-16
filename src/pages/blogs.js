@@ -37,7 +37,7 @@ const BlogPage = ({ data }) => {
                           </div>
                       )}
                     </div>
-                    <div style={{flex: 1, fontSize: `1vh`, color: `gray`, paddingLeft: `0.6em`}}> 
+                    <div style={{flex: 1, fontSize: `1vh`, color: `gray`, paddingLeft: `0.6em`, verticalAlign: `-webkit-baseline-middle`}}> 
                       <span>{node.frontmatter.date}</span>
                     </div>
                   </div>
