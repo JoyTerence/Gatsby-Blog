@@ -26,6 +26,9 @@ module.exports = {
             },
           },
           {
+            resolve:  `gatsby-remark-copy-images`,
+          },
+          {
             resolve: `gatsby-source-filesystem`,
             options: {
               path: `${__dirname}/content/`,
