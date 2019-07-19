@@ -9,7 +9,7 @@ export default ({data}) => {
             <div>
                 <h1><center>{post.frontmatter.title}</center></h1>
                 <br />
-                <div dangerouslySetInnerHTML={{ __html: post.html }} />
+                <div dangerouslySetInnerHTML={{ __html: post.html }} style={{ textAlign: `justify`}} />
             </div>
         </Layout>
     )
