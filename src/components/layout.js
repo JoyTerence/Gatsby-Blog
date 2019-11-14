@@ -67,7 +67,7 @@ const Layout = ({ children }) => (
             <IconContext.Provider value={{ color:`green`, size: `2em`}}>
                 < GoCloudDownload />
               </IconContext.Provider>
-            </a>
+          </a>
         </footer>
       </>
     )}

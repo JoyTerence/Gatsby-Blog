@@ -1,13 +1,13 @@
 import React from "react"
 
-import Layout from "../components/layout"
+import HomeLayout from "../components/home-layout"
 import SEO from "../components/seo"
 
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 const IndexPage = ({data}) => (
-  <Layout>
+  <HomeLayout>
     <SEO title="Joy Barnes" keywords={[`portfolio`, `gatsby`, `application`, `react`]} />
     <div>On a quest to know all there is!!</div>
     <br></br>
@@ -18,7 +18,7 @@ const IndexPage = ({data}) => (
     <div style={{textAlign: `justify`}}>Currently employed as Senior Technical Associate @ Avaya Telecommunications, Bengaluru working on Unified Communication products such as <a href="https://support.avaya.com/products/P1572/avaya-equinox-for-windows/" style={{textDecoration: `none`}}>Avaya Equinox</a>, <a href="https://www.zang.io/" style={{textDecoration: `none`}}>Zang</a>.
       Worked on CI/CD, SSO for Avaya Equinox and added Voice control feature for the Avaya WebRTC.
     </div>
-  </Layout>
+  </HomeLayout>
 )
 
 export default IndexPage
