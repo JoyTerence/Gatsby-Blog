@@ -95,14 +95,16 @@ const HomeLayout = ({ children }) => (
             </div>
           </div>
           <div className="main-bot-container">
-            <div className="projects home-card">
-              <div className="icon-container-project">
-                <IconContext.Provider value={{color: `royalblue`, size: `3em`}}>
-                  < GoRepo />
-                </IconContext.Provider>
+            <Link to="/projects">
+              <div className="projects home-card">
+                <div className="icon-container-project">
+                  <IconContext.Provider value={{color: `royalblue`, size: `3em`}}>
+                    < GoRepo />
+                  </IconContext.Provider>
+                </div>
+                <span className="icon-desc-container"><b>Projects</b></span>
               </div>
-              <span className="icon-desc-container"><b>Projects</b></span>
-            </div>
+            </Link>
           </div>
         </div>
 
