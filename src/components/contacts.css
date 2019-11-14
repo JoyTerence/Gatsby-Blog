@@ -1,0 +1,40 @@
+.contact-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    align-items: center;
+}
+
+.contact-card {
+    background-color: white;
+    width: 7em;
+    height: 7em;
+    padding: 0.5em;
+    box-shadow: 5px 10px 10px #888888;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.contact-card:hover {
+    background-color: white;
+    width: 8em;
+    height: 8em;
+    box-shadow: 5px 10px 30px #888888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-icon {
+    flex: 8;
+}
+
+.contact-icon-desc {
+    flex: 4;
+    text-align: center;
+}
+

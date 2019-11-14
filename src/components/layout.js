@@ -17,7 +17,7 @@ import { GiSpy, GiBookshelf } from "react-icons/gi";
 import { MdContactMail } from "react-icons/md";
 import { GoRepo, GoCloudDownload } from "react-icons/go";
 
-const Layout = ({ children }) => (
+export const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -78,4 +78,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+

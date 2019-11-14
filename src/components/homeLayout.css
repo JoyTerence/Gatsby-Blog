@@ -15,9 +15,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#___gatsby {
-  width: 100%;
+footer {
+  position: fixed;
+  bottom: 1em;
+  right: 2em;
 }
+
+/* #___gatsby {
+  width: 100%;
+} */
 
 .main-container {
   /* background-color: yellow; */
@@ -29,12 +35,12 @@ body {
 }
 .main-top-container {
   /* background-color: red; */
-  flex: 4;
+  flex: 8;
   display: flex;
 }
 .main-bot-container {
   /* background-color: yellow; */
-  flex: 2;
+  flex: 4;
   padding: 0.5em;
 }
 
@@ -63,7 +69,7 @@ body {
   display: flex;
 }
 
-.contact-container {
+.contact-link-container {
   /* background-color: ghostwhite; */
   flex: 4;
   padding: 0.5em;

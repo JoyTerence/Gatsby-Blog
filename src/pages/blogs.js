@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import Layout from "../components/layout"
+import HomeLayout from "../components/home-layout"
 import SEO from "../components/seo"
 
 import Badge from 'react-bootstrap/Card'
@@ -14,7 +14,7 @@ const BlogPage = ({ data }) => {
   // TODO: fix layout bug for iPad Pro screens.
 
   return (
-    <Layout>
+    <HomeLayout>
       <SEO title="Page two" />
         <div>
           {data.allMarkdownRemark.edges.map(({ node }) => (
@@ -49,7 +49,7 @@ const BlogPage = ({ data }) => {
             </div>
           ))}
         </div>
-    </Layout>
+    </HomeLayout>
   )
 }
 

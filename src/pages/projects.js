@@ -3,13 +3,13 @@ import React from "react"
 import "../components/projects.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import { graphql } from "gatsby"
 
 import ProjectCard from "../components/card"
 import { Row } from "react-bootstrap"
+import HomeLayout from "../components/home-layout";
 
 var _ = require('lodash');
 
@@ -32,10 +32,10 @@ const IndexPage = ({ data }) => {
     // console.log(divNodes)
 
     return(
-        <Layout>
+        <HomeLayout>
             <SEO title="Joy Barnes" keywords={[`portfolio`, `gatsby`, `application`, `react`]} />
             {divNodes}
-        </Layout>
+        </HomeLayout>
     )
 }
 
