@@ -15,12 +15,10 @@ class ProjectCard extends React.Component {
     }
 
     onHoverStart = () => {
-        console.log("Here")
         this.setState({ hover: true })
     }
 
     onHoverEnd = () => {
-        console.log("end")
         this.setState({ hover: false })
     }
 
