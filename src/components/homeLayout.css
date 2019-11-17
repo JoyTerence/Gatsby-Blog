@@ -31,17 +31,18 @@ footer {
   flex-direction: column;
 }
 
-
-@media only screen and (min-width: 768px) {
-  .main-top-container { flex: 8; display: flex; }
-  #___gatsby{ width: 62%; }
-}
-
 .main-top-container {
   /* background-color: red; */
   display: flex;
   flex: 8;
+  flex-direction: column;
 }
+
+@media only screen and (min-width: 768px) {
+  .main-top-container { flex-direction: row;}
+  #___gatsby{ width: 62%; }
+}
+
 .main-bot-container {
   /* background-color: yellow; */
   flex: 4;
