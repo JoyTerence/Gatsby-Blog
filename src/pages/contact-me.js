@@ -10,11 +10,13 @@ import { FaLinkedin, FaMedium, FaFacebook } from "react-icons/fa";
 
 const contactPage = () => (
     <HomeLayout>
+        <span className="main-title"> <b> Contact me here ... </b> </span>
+        <div className="main-title-container"></div>
         <div className="contact-container">
           <div className="contact-card">
             <a href="https://in.linkedin.com/in/joyterencebarnes" target="_blank" rel="noopener noreferrer">
               <div className="contact-icon">
-                <IconContext.Provider value={{color:`#0077b5`, size: `4em`}}>
+                <IconContext.Provider value={{color:`#0077b5`, size: `2em`}}>
                   < FaLinkedin />
                 </IconContext.Provider>
               </div>
@@ -24,7 +26,7 @@ const contactPage = () => (
           <div className="contact-card">
             <a href="https://github.com/JoyTerence" target="_blank" rel="noopener noreferrer">
               <div className="contact-icon">  
-                <IconContext.Provider value={{ color:`gray`, size: `4em`}}>
+                <IconContext.Provider value={{ color:`gray`, size: `2em`}}>
                   < GoOctoface />
                 </IconContext.Provider>
               </div>
@@ -34,7 +36,7 @@ const contactPage = () => (
           <div className="contact-card">
             <a href="https://medium.com/@joyterencebarnes" target="_blank" rel="noopener noreferrer">
               <div className="contact-icon">
-                <IconContext.Provider value={{ color:`black`, size: `4em`}}>
+                <IconContext.Provider value={{ color:`black`, size: `2em`}}>
                   < FaMedium />
                 </IconContext.Provider>
               </div>
@@ -44,7 +46,7 @@ const contactPage = () => (
           <div className="contact-card">
             <a href="https://www.facebook.com/joy.terence.9" target="_blank" rel="noopener noreferrer">
               <div className="contact-icon">
-                <IconContext.Provider value={{ color:`#365da8`, size: `4em`}}>
+                <IconContext.Provider value={{ color:`#365da8`, size: `2em`}}>
                   < FaFacebook />
                 </IconContext.Provider>
               </div>
@@ -54,7 +56,7 @@ const contactPage = () => (
           <div className="contact-card">
             <a href="mailto:joyterencebarnes@gmail.com">
               <div className="contact-icon">
-                <IconContext.Provider value={{ color:`green`, size: `4em`}}>
+                <IconContext.Provider value={{ color:`green`, size: `2em`}}>
                   <MdMail/>
                 </IconContext.Provider>
               </div>

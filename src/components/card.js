@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { IconContext } from "react-icons"
-import { DiGithub } from "react-icons/di"
+import { FaGithubAlt } from "react-icons/fa"
 
 class ProjectCard extends React.Component {
     constructor(props) {
@@ -26,17 +26,19 @@ class ProjectCard extends React.Component {
         const node = this.props.project;
         return (
             <Col key={node.id} style={{padding: `1em`}}>
-                <Card border="primary" className="projectCard" onMouseEnter={this.onHoverStart} onMouseLeave={this.onHoverEnd}>
+                <div className="projectCard" onMouseEnter={this.onHoverStart} onMouseLeave={this.onHoverEnd}>
                         <Card.Header className="projectName">{node.Name}</Card.Header>
                         <Card.Text className="projectDescription">{node.Description}</Card.Text>
                         <a href={node.Link} className="projectLink">
-                            <Button variant="link" size="sm">
-                                <IconContext.Provider value={{color: this.state.hover === true ? `blue`: `black`, size: this.state.hover === true ? `2.25em` : `2em`}}>
-                                    <span>< DiGithub /></span>
-                                </IconContext.Provider>    
-                            </Button>
+                            {
+                                this.state.hover === true ? 
+                                    <Button size="sm"> GitHub Link </Button> :
+                                    <IconContext.Provider value={{ size: `1.5em`}}>
+                                        <span>< FaGithubAlt /></span>
+                                    </IconContext.Provider>
+                            }
                         </a>
-                </Card>
+                </div>
             </Col>
         )
     }

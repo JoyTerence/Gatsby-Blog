@@ -20,21 +20,24 @@
 
 .projectCard {
     box-shadow: 0.2em 0.2em;
-    height: 10em;
-    width: 18rem;
+    height: 12em;
+    width: 14em;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    background-color: white;
+    border-radius: 5px; 
+    box-shadow: 5px 10px 10px #888888;
 }
 
 .projectCard:hover {
     box-shadow: 0.5em 0.5em;
+    box-shadow: 5px 10px 30px #888888;
 }
 
 .projectLink {
     flex: 1;
     margin: 0 auto;
-    padding-bottom: 0.5em;
-    max-height: 2em;
+    padding: 0.5em;
 }
 

@@ -1,16 +1,30 @@
+
+
+@media only screen and (max-width: 768px) {
+    #___gatsby { width: 100%; } 
+}
+
 .container {
     padding: 0.5em;
 }
 
-.gatsby-image-wrapper {
-    flex: 1;
-}
-
 .blog-container {
     display: flex;
-    height: 8em;
+    height: 9em;
     flex-direction: row;
-    box-shadow: black 0.1em 0.1em 1em;
+    background-color: white;
+    width: 100%;
+    box-shadow: 5px 10px 10px #888888;
+    border-radius: 5px;
+}
+
+.blog-container:hover {
+    height: 10em;
+    width: 102%;
+}
+
+.blog-container:hover .post-right-container {
+    min-width: 10em;
 }
 
 .post-left-container {
@@ -19,19 +33,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* border: blue;
-    border-style: groove;
-    border-width: 1px */
-    background-color: darkturquoise;
     min-width: 10em;
+    overflow: hidden;
 }
 
 .post-right-container {
     display: flex;
+    justify-content: space-between;
     flex: 2;
     margin: 0 auto;
-    min-width: 8em;
-    background-color: darkturquoise;
+    min-width: 9em;
+}
+
+.post-right-container > .gatsby-image-wrapper {
+    flex: 1;
+    margin: 1em;
 }
 
 .title {
@@ -40,12 +56,44 @@
 }
 
 .title-container {
-    font-size: 3vh;
-    font-weight: 700;
+    display: flex;
     flex: 3;
+    justify-content: flex-start;
+    font-weight: 700;
     color: black;
     padding-left: 0.25em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.desc-container {
+    display: flex;
+    flex: 7;
+    font-size: 1.75vh;
+    padding-left: 0.25em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: inherit;
+    text-align: justify;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+}
+
+.tag-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.date-container {
+    display: flex;
+    flex: 1;
+    font-size: 1vh;
+    color: gray;
+    padding-left: 0.6em;
+    vertical-align: -webkit-baseline-middle;
 }

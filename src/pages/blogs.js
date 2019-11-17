@@ -16,6 +16,8 @@ const BlogPage = ({ data }) => {
   return (
     <HomeLayout>
       <SEO title="Page two" />
+        <span className="main-title"> <b> Blogs </b> </span>
+        <div className="main-title-container"></div>
         <div>
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div className="container" key={node.id}>
@@ -25,10 +27,10 @@ const BlogPage = ({ data }) => {
                     <div className="title-container ">
                       <span className="title">{node.frontmatter.title}</span>
                     </div>
-                    <div style={{fontSize: `2vh`, flex: 4, paddingLeft: `0.25em`}}>
+                    <div className="desc-container">
                       <span>{node.frontmatter.description}</span>
                     </div>
-                    <div style={{display: `flex`, flexDirection: `row`, flex: 1}}>
+                    <div className="tag-container">
                       {node.frontmatter.tags.map(tag => 
                           <div key={Math.random()} style={{fontSize: `1vh`, margin: `0.5em`}}>
                             <Badge style={{ width: `fit-content`, backgroundColor: `#007bff`, paddingLeft: `0.25em`}} pill="true" variant="primary">
@@ -37,7 +39,7 @@ const BlogPage = ({ data }) => {
                           </div>
                       )}
                     </div>
-                    <div style={{flex: 1, fontSize: `1vh`, color: `gray`, paddingLeft: `0.6em`, verticalAlign: `-webkit-baseline-middle`}}> 
+                    <div className="date-container"> 
                       <span>{node.frontmatter.date}</span>
                     </div>
                   </div>
@@ -69,7 +71,7 @@ export const query = graphql`
             tags
             image {
               childImageSharp {
-                fluid(maxWidth: 200, quality: 100) {
+                fluid(maxWidth: 100, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -79,13 +81,6 @@ export const query = graphql`
             slug
           }
           excerpt
-        }
-      }
-    }
-    file(relativePath: { eq: "dummy.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 100, quality: 50) {
-          ...GatsbyImageSharpFluid
         }
       }
     }

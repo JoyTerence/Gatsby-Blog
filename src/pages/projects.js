@@ -22,9 +22,9 @@ const IndexPage = ({ data }) => {
     // console.log("*****************")
     // console.log(dataNodes)
     
-    var divNodes =  _.chunk(dataNodes, 2).map(y => 
+    var divNodes =  _.chunk(dataNodes, 3).map(node => 
         <Row key={Math.random()}>
-            {y}
+            {node}
         </Row>
     )
 
@@ -34,6 +34,8 @@ const IndexPage = ({ data }) => {
     return(
         <HomeLayout>
             <SEO title="Joy Barnes" keywords={[`portfolio`, `gatsby`, `application`, `react`]} />
+            <span className="main-title"> <b> Projects </b> </span>
+            <div className="main-title-container"></div>
             {divNodes}
         </HomeLayout>
     )
