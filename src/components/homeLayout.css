@@ -5,6 +5,7 @@ html {
 }
 
 body {
+  background-color: #d3d3d3 !important;
   margin: 0px;
   min-height: 100%;
   min-width: 100%;
@@ -13,7 +14,7 @@ body {
   justify-content: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #d3d3d3;
+  
 }
 
 footer {
