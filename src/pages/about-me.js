@@ -8,7 +8,6 @@ import '../components/about-me.css'
 
 const AboutMePage = ({ data }) => {
     const htmlContent = data.allMarkdownRemark.edges.map(({ node }) => node.html)
-
     return (
         <HomeLayout>
             <SEO title="Joy Barnes" keywords={[`portfolio`, `gatsby`, `application`, `react`]} />

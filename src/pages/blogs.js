@@ -44,6 +44,7 @@ const BlogPage = ({ data }) => {
                   </div>
                 </div>
                 <div className="post-right-container">
+                  console.log(node.frontmatter)
                   <Img fluid={node.frontmatter.image.childImageSharp.fluid}/>
                 </div>
               </div>
