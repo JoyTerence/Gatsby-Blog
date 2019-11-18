@@ -12,7 +12,7 @@
     height: 100%;
 }
 
-.gatsby-resp-image-wrapper {
+.about-me-card  > div > p > .gatsby-resp-image-wrapper {
     width: 1.25em;
     display: inline-block !important;
 }

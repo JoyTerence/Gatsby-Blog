@@ -9,17 +9,25 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import "../components/blogs.css"
 
+var _ = require('lodash');
+
 const BlogPage = ({ data }) => {
 
   // TODO: fix layout bug for iPad Pro screens.
-
   return (
     <HomeLayout>
       <SEO title="Blog" />
       <span className="main-title"> <b> Blogs </b> </span>
       <div className="main-bar-container"></div>
       <div>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
+        {data.allMarkdownRemark.edges.filter(function(node) {
+          if (node.node.fields.slug === "/aboutme/") {
+            return false // Skip about me page from being shown in blogs list
+          }
+          else {
+            return true
+          }
+        }).map(({ node }) => (
           <div className="container" key={node.id}>
             <Link style={{textDecoration: `none`}} to={node.fields.slug}>
               <div className="blog-container">
@@ -44,7 +52,7 @@ const BlogPage = ({ data }) => {
                   </div>
                 </div>
                 <div className="post-right-container">
-                  console.log(node.frontmatter)
+                  {console.log(node.frontmatter)}
                   <Img fluid={node.frontmatter.image.childImageSharp.fluid}/>
                 </div>
               </div>
