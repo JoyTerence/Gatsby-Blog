@@ -11,6 +11,8 @@ import { StaticQuery, graphql, Link} from "gatsby"
 import { Location } from '@reach/router';
 
 import "./homeLayout.css"
+import { IconContext } from "react-icons";
+import { MdHome } from "react-icons/md";
 
 const HomeLayout = ({ children }) => (
   <StaticQuery
