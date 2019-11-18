@@ -10,8 +10,6 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql, Link} from "gatsby"
 import { Location } from '@reach/router';
 
-import Header from './header'
-
 import "./homeLayout.css"
 import { IconContext } from "react-icons";
 import { MdHome } from "react-icons/md";
