@@ -11,7 +11,7 @@ import { FaLinkedin, FaMedium, FaFacebook } from "react-icons/fa";
 const contactPage = () => (
     <HomeLayout>
         <span className="main-title"> <b> Contact me here ... </b> </span>
-        <div className="main-title-container"></div>
+        <div className="main-bar-container"></div>
         <div className="contact-container">
           <div className="contact-card">
             <a href="https://in.linkedin.com/in/joyterencebarnes" target="_blank" rel="noopener noreferrer">

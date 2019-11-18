@@ -15,42 +15,42 @@ const BlogPage = ({ data }) => {
 
   return (
     <HomeLayout>
-      <SEO title="Page two" />
-        <span className="main-title"> <b> Blogs </b> </span>
-        <div className="main-title-container"></div>
-        <div>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <div className="container" key={node.id}>
-              <Link style={{textDecoration: `none`}} to={node.fields.slug}>
-                <div className="blog-container">
-                  <div className="post-left-container">
-                    <div className="title-container ">
-                      <span className="title">{node.frontmatter.title}</span>
-                    </div>
-                    <div className="desc-container">
-                      <span>{node.frontmatter.description}</span>
-                    </div>
-                    <div className="tag-container">
-                      {node.frontmatter.tags.map(tag => 
-                          <div key={Math.random()} style={{fontSize: `1vh`, margin: `0.5em`}}>
-                            <Badge style={{ width: `fit-content`, backgroundColor: `#007bff`, paddingLeft: `0.25em`}} pill="true" variant="primary">
-                              <span style={{color: "black", fontWeight: 700}}>{tag}</span>
-                            </Badge>
-                          </div>
-                      )}
-                    </div>
-                    <div className="date-container"> 
-                      <span>{node.frontmatter.date}</span>
-                    </div>
+      <SEO title="Blog" />
+      <span className="main-title"> <b> Blogs </b> </span>
+      <div className="main-bar-container"></div>
+      <div>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <div className="container" key={node.id}>
+            <Link style={{textDecoration: `none`}} to={node.fields.slug}>
+              <div className="blog-container">
+                <div className="post-left-container">
+                  <div className="title-container ">
+                    <span className="title">{node.frontmatter.title}</span>
                   </div>
-                  <div className="post-right-container">
-                    <Img fluid={node.frontmatter.image.childImageSharp.fluid}/>
+                  <div className="desc-container">
+                    <span>{node.frontmatter.description}</span>
+                  </div>
+                  <div className="tag-container">
+                    {node.frontmatter.tags.map(tag => 
+                        <div key={Math.random()} style={{fontSize: `1vh`, margin: `0.5em`}}>
+                          <Badge style={{ width: `fit-content`, backgroundColor: `#007bff`, paddingLeft: `0.25em`}} pill="true" variant="primary">
+                            <span style={{color: "black", fontWeight: 700}}>{tag}</span>
+                          </Badge>
+                        </div>
+                    )}
+                  </div>
+                  <div className="date-container"> 
+                    <span>{node.frontmatter.date}</span>
                   </div>
                 </div>
-              </Link>  
-            </div>
-          ))}
-        </div>
+                <div className="post-right-container">
+                  <Img fluid={node.frontmatter.image.childImageSharp.fluid}/>
+                </div>
+              </div>
+            </Link>  
+          </div>
+        ))}
+      </div>
     </HomeLayout>
   )
 }

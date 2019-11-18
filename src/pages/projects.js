@@ -35,7 +35,7 @@ const IndexPage = ({ data }) => {
         <HomeLayout>
             <SEO title="Joy Barnes" keywords={[`portfolio`, `gatsby`, `application`, `react`]} />
             <span className="main-title"> <b> Projects </b> </span>
-            <div className="main-title-container"></div>
+            <div className="main-bar-container"></div>
             {divNodes}
         </HomeLayout>
     )

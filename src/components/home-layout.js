@@ -10,6 +10,8 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql, Link} from "gatsby"
 import { Location } from '@reach/router';
 
+import Header from './header'
+
 import "./homeLayout.css"
 import { IconContext } from "react-icons";
 import { MdHome } from "react-icons/md";
@@ -27,7 +29,6 @@ const HomeLayout = ({ children }) => (
     `}
     render={data => (
       <>
-        {/* Add <HEADER> */}
         <div className="main-container">
           {children} 
         </div>
@@ -35,8 +36,7 @@ const HomeLayout = ({ children }) => (
           <Location>
             {
               ({ location }) => {
-                var showhomebutton = location.pathname != '/'
-                console.log(showhomebutton)
+                var showhomebutton = location.pathname !== '/'
                 return showhomebutton? 
                   <Link to="/" target="_blank">
                     <div className="home-card">

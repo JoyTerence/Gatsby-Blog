@@ -139,8 +139,8 @@ footer {
   font-size: 0.8em;
 }
 
-.main-title-container {
-  width: 95%;
+.main-bar-container {
+  width: 99%;
   height: 1em;
   background-color: white;
   margin: 0 auto;
@@ -154,5 +154,5 @@ footer {
   padding: 0.5em;
   color: white;
   margin: 0 auto;
-  text-shadow: 2px 2px #888888;
+  text-shadow: 0 0 10px #888888, 0 0 20px #888888;
 }

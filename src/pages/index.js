@@ -15,7 +15,7 @@ const IndexPage = ({data}) => (
     <SEO title="Joy Barnes" keywords={[`portfolio`, `gatsby`, `application`, `react`]} />
     <div className="main-top-container">
             <div className="profile-container main-top-left-container">
-              <Link to="/" target="_blank">
+              <Link to="/about-me" target="_blank">
                 <div className="profile home-card">
                   <div className="profile-img-container">
                     <Img fluid={data.profilepic.childImageSharp.fluid} />
