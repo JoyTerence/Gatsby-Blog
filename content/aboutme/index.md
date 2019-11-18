@@ -1,9 +1,9 @@
 ---
 title: About-me
 description: About-me
-date: '07-17-2019'
+date: '20-11-2019'
 image: ./gear.png
-tags: ['deep learning','machine learning','neuron']
+tags: ['Joy Barnes','about me']
 ---
 
 On a quest to know all there is!!
