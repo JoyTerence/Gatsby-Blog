@@ -2,7 +2,7 @@
 title: Neurons? Explain it to me like 5 year old...
 description: A very simple introduction to how Neurons works... minus the complex math!!
 date: '07-17-2019'
-image: ./gatsby-icon.png
+image: ./neuron.webp
 tags: ['deep learning','machine learning','neuron']
 ---
 
@@ -58,6 +58,8 @@ Now, mathematically the entire equation for a simple neuron output is:
     output =
                1 if ∑<sub>j</sub>w<sub>j</sub>x<sub>j</sub> > threshold 
 </pre>
+
+![](./neural-neuron.jpg)
 
 Don't get overwhelmed if you are a beginner to this, all this equation tells is that you take each factor and multiply it by its weight (makes sense as if the weight is more, then the product is also large as was desired). Now adding all these products if the sum is above a threshhold then output is 1 (Green signal ✅) or if the sum is less then output is 0 (red signal 🔴).
 

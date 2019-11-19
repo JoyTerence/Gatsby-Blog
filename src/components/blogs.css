@@ -58,6 +58,7 @@
 .title-container {
     display: flex;
     flex: 3;
+    font-size: 1.25em;
     justify-content: flex-start;
     font-weight: 700;
     color: black;
@@ -67,10 +68,13 @@
     white-space: nowrap;
 }
 
+@media only screen and (min-width: 768px) {
+    .desc-container { font-size: 1.1em; }
+}
+
 .desc-container {
     display: flex;
     flex: 7;
-    font-size: 1.75vh;
     padding-left: 0.25em;
     overflow: hidden;
     display: -webkit-box;
@@ -95,6 +99,7 @@
     font-size: 1vh;
     color: gray;
     padding-left: 0.6em;
-    margin-top: 1em;
+    margin-top: 1.25em;
+    margin-bottom: 0.5em;
     vertical-align: -webkit-baseline-middle;
 }

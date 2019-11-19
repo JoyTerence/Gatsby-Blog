@@ -9,11 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import "../components/blogs.css"
 
-var _ = require('lodash');
-
 const BlogPage = ({ data }) => {
 
-  // TODO: fix layout bug for iPad Pro screens.
   return (
     <HomeLayout>
       <SEO title="Blog" />
