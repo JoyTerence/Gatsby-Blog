@@ -41,7 +41,7 @@ const BlogPage = ({ data }) => {
                   <div className="tag-container">
                     {node.frontmatter.tags.map(tag => 
                         <div key={Math.random()} style={{fontSize: `1vh`, margin: `0.5em`}}>
-                          <Badge style={{ width: `fit-content`, backgroundColor: `#007bff`, paddingLeft: `0.25em`}} pill="true" variant="primary">
+                          <Badge style={{ width: `max-content`, backgroundColor: `#007bff`, paddingLeft: `0.25em`}} pill="true" variant="primary">
                             <span style={{color: "black", fontWeight: 700}}>{tag}</span>
                           </Badge>
                         </div>
