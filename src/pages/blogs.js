@@ -14,7 +14,7 @@ const BlogPage = ({ data }) => {
   return (
     <HomeLayout>
       <SEO title="Blog" />
-      <span className="main-title"> <b> Blogs </b> </span>
+      <span className="main-title"> <b> Scribble.. Scribble.. </b> </span>
       <div className="main-bar-container"></div>
       <div>
         {data.allMarkdownRemark.edges.filter(function(node) {
