@@ -6,7 +6,7 @@ image: ./react-native.png
 tags: ['react-native','flutter','facebook', 'google', 'javascript', 'dart']
 ---
 
-![](./react-nativeVSflutter.png)
+![](./react-native.png)
 
 Though native app development is more preferred to create apps in both Android and iOS, there has been a steady increase in the interest for building cross-platform mobile apps. Two of the popular frameworks used for cross-platform development are [React Native](https://facebook.github.io/react-native/) and [Flutter](https://flutter.dev/). 
 

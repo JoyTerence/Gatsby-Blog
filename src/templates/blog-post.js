@@ -10,7 +10,7 @@ export default ({data}) => {
         <HomeLayout>
             <div className="blog-post-container">
                 <h1><center>{post.frontmatter.title}</center></h1>
-                <br />
+                <hr/>
                 <div dangerouslySetInnerHTML={{ __html: post.html }} style={{ textAlign: `justify`}} />
             </div>
         </HomeLayout>

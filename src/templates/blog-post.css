@@ -10,3 +10,7 @@ img {
     display: block;
     margin: auto;
 }
+
+.header-image {
+    margin: 1em;
+}
