@@ -99,7 +99,19 @@
     font-size: 1vh;
     color: gray;
     padding-left: 0.6em;
-    margin-top: 1.25em;
-    margin-bottom: 0.5em;
+    /* margin-top: 1.25em;
+    margin-bottom: 0.5em; */
     vertical-align: -webkit-baseline-middle;
+}
+
+.sort-search-container {
+    padding: 0.5em;
+    display: flex;
+}
+
+.sort-container {
+    padding: 0.5em;
+    background-color: white;
+    box-shadow: 5px 10px 10px #888888;
+    border-radius: 5px;
 }

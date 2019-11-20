@@ -1,23 +1,53 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import HomeLayout from "../components/home-layout"
 import SEO from "../components/seo"
 
 import Badge from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import "../components/blogs.css"
+import HomeLayout from "../components/home-layout"
+
+import { IconContext } from "react-icons";
+import { TiDocumentText } from "react-icons/ti";
+import { FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
 
 const BlogPage = ({ data }) => {
+
+  const [descorder, setDescOrder] = useState(true)
+
+  var nodes = data.allMarkdownRemark.edges
+  var reversenodes = data.allMarkdownRemark.edges.reverse()
+
+  const onclick = () => {
+    setDescOrder(!descorder)
+    if (descorder === true) {
+      console.log("Displaying latest blogs first")
+    }
+    else {
+      console.log("Displaying earliest blogs first")
+      nodes = reversenodes
+    }
+  }
 
   return (
     <HomeLayout>
       <SEO title="Blog" />
       <span className="main-title"> <b> Blogs </b> </span>
       <div className="main-bar-container"></div>
+      <div className="sort-search-container">
+        <div className="sort-container" onClick={onclick}>
+          <IconContext.Provider value={{color: `black`, size: `2em`}}>
+            < TiDocumentText /> 
+          </IconContext.Provider>
+          <IconContext.Provider value={{color: `black`, size: `1.5em`}}>
+            {descorder? < FaSortAmountDown />: <FaSortAmountUp />}
+          </IconContext.Provider>
+        </div>
+      </div>
       <div>
-        {data.allMarkdownRemark.edges.filter(function(node) {
+        {nodes.filter(function(node) {
           if (node.node.fields.slug === "/aboutme/") {
             return false // Skip about me page from being shown in blogs list
           }
