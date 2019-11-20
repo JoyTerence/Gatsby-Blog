@@ -1,7 +1,7 @@
 ---
 title: React-Native
 description: My experience with React Native, the wows and hmmms...
-date: '2019-11-9'
+date: '21-11-2019'
 image: ./react-native.png
 tags: ['react-native','flutter','facebook', 'google', 'javascript', 'dart']
 ---
