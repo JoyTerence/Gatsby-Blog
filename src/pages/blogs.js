@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
 
-import Badge from 'react-bootstrap/Card'
+import Badge from 'react-bootstrap/Badge'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import "../components/blogs.css"
@@ -12,12 +12,15 @@ import HomeLayout from "../components/home-layout"
 import { IconContext } from "react-icons";
 import { TiDocumentText } from "react-icons/ti";
 import { FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
+import { MdSearch } from "react-icons/md";
 
 var _ = require('lodash')
 
 const BlogPage = ({ data }) => {
 
   const [descorder, setDescOrder] = useState(true)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [tags, setTags] = useState([])
 
   var nodes = data.allMarkdownRemark.edges
 
@@ -25,13 +28,21 @@ const BlogPage = ({ data }) => {
 
   const onclick = () => {
     setDescOrder(!descorder)
-    if (descorder === true) {
-      console.log("Displaying latest blogs first")
+    nodes = nodes.reverse()
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      console.log(searchTerm)
+      setTags(tags => [...tags, searchTerm])
+      console.log("Tags: " + tags)
     }
-    else {
-      console.log("Displaying earliest blogs first")
-      nodes = nodes.reverse()
-    }
+  }
+
+  const onSearchChange = (e) => {
+    console.log("++++" + searchTerm)
+    setSearchTerm(e.target.value);
+    console.log(">>>" + searchTerm)
   }
 
   return (
@@ -48,11 +59,28 @@ const BlogPage = ({ data }) => {
             {descorder? < FaSortAmountDown />: <FaSortAmountUp />}
           </IconContext.Provider>
         </div>
+        <div className="search-container">
+          <input defaultValue="" type="text" className="search-bar" placeholder="Search by tags..." onKeyDown={handleKeyDown}  onChange={onSearchChange}/>
+          <IconContext.Provider value={{color: `black`, size: `2em`}}>
+            < MdSearch /> 
+          </IconContext.Provider>
+        </div>
+      </div>
+      <div className="search-tags-container">
+        {console.log(tags)}
+        {
+          tags.map(tag => 
+            <div key={Math.random()} style={{padding: `0.1em`}}>
+              <Badge style={{ width: `max-content`}} pill="true" variant="primary">
+                <span style={{color: "black", fontWeight: 700}}>{tag}</span>
+              </Badge>
+            </div>
+        )}
       </div>
       <div>
         {nodes.filter(function(node) {
           if (node.node.fields.slug === "/aboutme/") {
-            return false // Skip about me page from being shown in blogs list
+            return false // Skip about-me page from being shown in blogs list
           }
           else {
             return true

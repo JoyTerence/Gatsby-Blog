@@ -124,6 +124,16 @@
     border-radius: 5px;
 }
 
-.search-class {
+.search-bar {
     border: unset !important;
+}
+
+input:focus {
+    outline: none;
+}
+
+.search-tags-container {
+    font-size: 1em;
+    margin: 0.5em;
+    display: flex;
 }
