@@ -107,6 +107,7 @@
 .sort-search-container {
     padding: 0.5em;
     display: flex;
+    justify-content: space-between;
 }
 
 .sort-container {
@@ -114,4 +115,15 @@
     background-color: white;
     box-shadow: 5px 10px 10px #888888;
     border-radius: 5px;
+}
+
+.search-container {
+    padding: 0.5em;
+    background-color: white;
+    box-shadow: 5px 10px 10px #888888;
+    border-radius: 5px;
+}
+
+.search-class {
+    border: unset !important;
 }
