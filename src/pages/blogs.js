@@ -6,8 +6,6 @@ import SEO from "../components/seo"
 import Badge from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import SearchField from "react-search-field";
-
 import "../components/blogs.css"
 import HomeLayout from "../components/home-layout"
 
@@ -22,7 +20,6 @@ const BlogPage = ({ data }) => {
   const [descorder, setDescOrder] = useState(true)
 
   var nodes = data.allMarkdownRemark.edges
-  var reversenodes = nodes.reverse()
 
   const tagColors = ["lightblue", "lightgreen", "lightcyan", "lightyellow", "lightgrey", "lightred", "lightgreen"]
 
@@ -33,7 +30,7 @@ const BlogPage = ({ data }) => {
     }
     else {
       console.log("Displaying earliest blogs first")
-      nodes = reversenodes
+      nodes = nodes.reverse()
     }
   }
 
