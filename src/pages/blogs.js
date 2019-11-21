@@ -15,12 +15,16 @@ import { IconContext } from "react-icons";
 import { TiDocumentText } from "react-icons/ti";
 import { FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
 
+var _ = require('lodash')
+
 const BlogPage = ({ data }) => {
 
   const [descorder, setDescOrder] = useState(true)
 
   var nodes = data.allMarkdownRemark.edges
-  var reversenodes = data.allMarkdownRemark.edges.reverse()
+  var reversenodes = nodes.reverse()
+
+  const tagColors = ["lightblue", "lightgreen", "lightcyan", "lightyellow", "lightgrey", "lightred", "lightgreen"]
 
   const onclick = () => {
     setDescOrder(!descorder)
@@ -36,7 +40,7 @@ const BlogPage = ({ data }) => {
   const onenter= (value, event) => {
     console.log(value)
     console.log(event)
-  }
+  } 
 
   return (
     <HomeLayout>
@@ -82,7 +86,7 @@ const BlogPage = ({ data }) => {
                   <div className="tag-container">
                     {node.frontmatter.tags.map(tag => 
                         <div key={Math.random()} style={{fontSize: `1vh`, margin: `0.5em`}}>
-                          <Badge style={{ width: `max-content`, backgroundColor: `#007bff`}} pill="true" variant="primary">
+                          <Badge style={{ width: `max-content`, backgroundColor: _.sample(tagColors)}} pill="true" variant="primary">
                             <span style={{color: "black", fontWeight: 700}}>{tag}</span>
                           </Badge>
                         </div>
