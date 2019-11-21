@@ -37,11 +37,6 @@ const BlogPage = ({ data }) => {
     }
   }
 
-  const onenter= (value, event) => {
-    console.log(value)
-    console.log(event)
-  } 
-
   return (
     <HomeLayout>
       <SEO title="Blog" />
@@ -55,13 +50,6 @@ const BlogPage = ({ data }) => {
           <IconContext.Provider value={{color: `black`, size: `1.5em`}}>
             {descorder? < FaSortAmountDown />: <FaSortAmountUp />}
           </IconContext.Provider>
-        </div>
-        <div className="search-container">
-          <SearchField
-            placeholder="Search..."
-            classNames="search-class"
-            onEnter={onenter}
-          />
         </div>
       </div>
       <div>
