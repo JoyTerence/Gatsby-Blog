@@ -8,11 +8,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import "../components/blogs.css"
 import HomeLayout from "../components/home-layout"
+import '../components/search-util'
 
 import { IconContext } from "react-icons";
 import { TiDocumentText } from "react-icons/ti";
 import { FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
 import { MdSearch } from "react-icons/md";
+import searcher from "../components/search-util"
 
 var _ = require('lodash')
 
@@ -34,15 +36,16 @@ const BlogPage = ({ data }) => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       console.log(searchTerm)
-      setTags(tags => [...tags, searchTerm])
-      console.log("Tags: " + tags)
+      if (e.target.value !== "") {
+        setTags(tags => [...tags, searchTerm])
+        searcher(nodes, tags)
+      }
+
     }
   }
 
   const onSearchChange = (e) => {
-    console.log("++++" + searchTerm)
     setSearchTerm(e.target.value);
-    console.log(">>>" + searchTerm)
   }
 
   return (
@@ -67,7 +70,6 @@ const BlogPage = ({ data }) => {
         </div>
       </div>
       <div className="search-tags-container">
-        {console.log(tags)}
         {
           tags.map(tag => 
             <div key={Math.random()} style={{padding: `0.1em`}}>
