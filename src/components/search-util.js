@@ -1,17 +1,19 @@
 const searcher = ( data, tags ) => {
     
-    console.log(tags)
-    
-    data.forEach(element => {
-        if (element.node.fields.slug !== "/aboutme") {
-            var subjectArray = element.node.frontmatter.tags;
+    data = data.filter(elem => {
+        if (elem.node.fields.slug !== "/aboutme/") {
+            var subjectArray = elem.node.frontmatter.tags;
             var searchKeyArray = tags;
             var found = searchKeyArray.some(r => subjectArray.indexOf(r) >= 0)
-            console.log(subjectArray)
-            console.log(searchKeyArray)
-            console.log(found)
+            if (found) {
+                return true
+            }
+            else {
+                return false
+            }
         }
-    });
+    })
+    return data
 }
 
 export default searcher;

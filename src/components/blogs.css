@@ -118,6 +118,7 @@
 }
 
 .search-container {
+    display: flex;
     padding: 0.5em;
     background-color: white;
     box-shadow: 5px 10px 10px #888888;
@@ -125,7 +126,10 @@
 }
 
 .search-bar {
-    border: unset !important;
+    border-top: unset !important;
+    border-bottom: unset !important;
+    border-left: unset !important;
+    border-right: 1px solid;
 }
 
 input:focus {
@@ -133,7 +137,18 @@ input:focus {
 }
 
 .search-tags-container {
+    display: flex;
+    flex-direction: row;
     font-size: 1em;
     margin: 0.5em;
+}
+
+.search-tags {
     display: flex;
+    width: fit-content;
+    margin: 0.2em;
+    padding: 0.2em;
+    background-color: white;
+    box-shadow: 5px 10px 10px #888888;
+    border-radius: 10px;
 }

@@ -13,7 +13,7 @@ import '../components/search-util'
 import { IconContext } from "react-icons";
 import { TiDocumentText } from "react-icons/ti";
 import { FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
-import { MdSearch } from "react-icons/md";
+import { MdSearch, MdClose } from "react-icons/md";
 import searcher from "../components/search-util"
 
 var _ = require('lodash')
@@ -23,22 +23,24 @@ const BlogPage = ({ data }) => {
   const [descorder, setDescOrder] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
   const [tags, setTags] = useState([])
-
-  var nodes = data.allMarkdownRemark.edges
+  const [nodes, setNodes] = useState(data.allMarkdownRemark.edges)
 
   const tagColors = ["lightblue", "lightgreen", "lightcyan", "lightyellow", "lightgrey", "lightred", "lightgreen"]
 
   const onclick = () => {
     setDescOrder(!descorder)
-    nodes = nodes.reverse()
+    setNodes(nodes.reverse())
   }
+
+  var tagArray = null
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      console.log(searchTerm)
       if (e.target.value !== "") {
-        setTags(tags => [...tags, searchTerm])
-        searcher(nodes, tags)
+        tagArray = Array.from(new Set([...tags, searchTerm]))
+        setNodes(searcher(data.allMarkdownRemark.edges, tagArray))
+        setTags(tags => tagArray)
+        console.log(nodes)
       }
 
     }
@@ -46,6 +48,28 @@ const BlogPage = ({ data }) => {
 
   const onSearchChange = (e) => {
     setSearchTerm(e.target.value);
+  }
+
+  const onSearchIconClick = () => {
+    if (searchTerm !== "") {
+      tagArray = Array.from(new Set([...tags, searchTerm]))
+      setNodes(searcher(data.allMarkdownRemark.edges, tagArray))
+      setTags(tags => tagArray)
+      console.log(nodes)
+    }
+  }
+
+  const onSearchTagClick = (index) => {
+    tagArray = tags
+    tagArray.splice(index, 1)
+    console.log(tagArray)
+    if (tagArray === undefined || tagArray.length == 0) {
+      setNodes(data.allMarkdownRemark.edges)
+    }
+    else {
+      setNodes(searcher(data.allMarkdownRemark.edges, tagArray))
+    }
+    setTags(tags => tagArray)
   }
 
   return (
@@ -63,19 +87,29 @@ const BlogPage = ({ data }) => {
           </IconContext.Provider>
         </div>
         <div className="search-container">
-          <input defaultValue="" type="text" className="search-bar" placeholder="Search by tags..." onKeyDown={handleKeyDown}  onChange={onSearchChange}/>
-          <IconContext.Provider value={{color: `black`, size: `2em`}}>
-            < MdSearch /> 
-          </IconContext.Provider>
+          <input type="text" className="search-bar" placeholder="Search by tags..." onKeyDown={handleKeyDown}  onChange={onSearchChange}/>
+          <div onClick={onSearchIconClick}>
+            <IconContext.Provider value={{color: `black`, size: `2em`, }} >
+              < MdSearch /> 
+            </IconContext.Provider>
+          </div>
         </div>
       </div>
       <div className="search-tags-container">
         {
-          tags.map(tag => 
-            <div key={Math.random()} style={{padding: `0.1em`}}>
-              <Badge style={{ width: `max-content`}} pill="true" variant="primary">
-                <span style={{color: "black", fontWeight: 700}}>{tag}</span>
-              </Badge>
+          tags.map((tag, index) => 
+            console.log(tag)
+          )
+        }
+        {
+          tags.map((tag, index) => 
+            <div key={Math.random()} className="search-tags">
+              <span style={{color: "black", fontWeight: 500}}>{tag}</span>
+              <div onClick={() => onSearchTagClick(index)} >
+                <IconContext.Provider value={{color: `black`, size: `1em`}}>
+                  < MdClose />
+                </IconContext.Provider>
+              </div>
             </div>
         )}
       </div>
