@@ -40,7 +40,6 @@ const BlogPage = ({ data }) => {
         tagArray = Array.from(new Set([...tags, searchTerm]))
         setNodes(searcher(data.allMarkdownRemark.edges, tagArray))
         setTags(tags => tagArray)
-        console.log(nodes)
       }
 
     }
@@ -55,15 +54,13 @@ const BlogPage = ({ data }) => {
       tagArray = Array.from(new Set([...tags, searchTerm]))
       setNodes(searcher(data.allMarkdownRemark.edges, tagArray))
       setTags(tags => tagArray)
-      console.log(nodes)
     }
   }
 
   const onSearchTagClick = (index) => {
     tagArray = tags
     tagArray.splice(index, 1)
-    console.log(tagArray)
-    if (tagArray === undefined || tagArray.length == 0) {
+    if (tagArray === undefined || tagArray.length === 0) {
       setNodes(data.allMarkdownRemark.edges)
     }
     else {
@@ -96,11 +93,6 @@ const BlogPage = ({ data }) => {
         </div>
       </div>
       <div className="search-tags-container">
-        {
-          tags.map((tag, index) => 
-            console.log(tag)
-          )
-        }
         {
           tags.map((tag, index) => 
             <div key={Math.random()} className="search-tags">

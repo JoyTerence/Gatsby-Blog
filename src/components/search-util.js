@@ -16,6 +16,7 @@ const searcher = ( data, tags ) => {
                 return false
             }
         }
+        return false
     })
     return data
 }
