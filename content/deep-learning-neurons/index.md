@@ -5,6 +5,7 @@ date: '07-17-2019'
 image: ./neuron.webp
 tags: ['deep learning','machine learning','neuron']
 ---
+![](./neuron.webp)
 
 #### Neurons 
 ---
