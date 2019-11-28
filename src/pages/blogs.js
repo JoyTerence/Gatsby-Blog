@@ -21,7 +21,7 @@ var _ = require('lodash')
 const BlogPage = ({ data }) => {
 
   const [descorder, setDescOrder] = useState(true)
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState("")
   const [tags, setTags] = useState([])
   const [nodes, setNodes] = useState(data.allMarkdownRemark.edges)
 
@@ -37,6 +37,7 @@ const BlogPage = ({ data }) => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       if (e.target.value !== "") {
+        e.target.value = ""
         tagArray = Array.from(new Set([...tags, searchTerm]))
         setNodes(searcher(data.allMarkdownRemark.edges, tagArray))
         setTags(tags => tagArray)
