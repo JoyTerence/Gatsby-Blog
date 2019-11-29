@@ -3,8 +3,18 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+}
+
+
+.contact-container-row { 
+    display: flex; 
+    width: fit-content;
+}
+
+.odd-contact-container-row {
+    width: fit-content !important;
 }
 
 @media only screen and (min-width: 768px) {
