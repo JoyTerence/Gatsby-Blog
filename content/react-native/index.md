@@ -1,7 +1,7 @@
 ---
 title: React-Native
 description: My experience with React Native, the wows and hmmms...
-date: '21-11-2019'
+date: '2019-11-21'
 image: ./react-native-logo.png
 tags: ['react native','flutter','facebook', 'google', 'javascript', 'dart']
 ---
@@ -22,7 +22,7 @@ When I started learning React Native, around 2017, my knowledge of React came ve
 
 However, I should admit that my exploration was more inclined towards Android platform and very limited towards the iOS platform. During the implementation of the app, I also faced numerous problems mainly due to lack of certain native platform features. This meant I had to either code the support by myself or to do a extensive github search for open source library that provided that support. Often such Github projects had conflicting library dependencies and I spent a good amount of my time solving those issues instead of spending it on planning and execution of my app. This became a painful recurring situation whenever there was a new open source library was required to be installed. ![](penny.gif)
 
-But once the setup started working (A miracle!), the development seemed very smooth and quick. The hot reload feature made it very convienent to test out any subtle changes in the UI or in my app logic. Since my apps were not performance critical, the look and feel of the app was indistinguishable from the native platform. Other than the dependency issues, I felt that I could underlying logic and initial UI fairly quickly.
+But once the setup started working (A miracle!), the development seemed very smooth and quick. The hot reload feature made it very convienent to test out any subtle changes in the UI or in my app logic. Since my apps were not performance critical, the look and feel of the app was indistinguishable from the native platform. Other than the dependency issues, I felt that I could code the underlying logic and initial UI fairly quickly.
 
 The declarative syntax from react made me feel it to be really easy and intuitive to code. Since the community is large and active enough, I could google my problems and get an idea about what is going wrong, if not solve the issue.
 

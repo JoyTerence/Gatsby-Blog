@@ -26,7 +26,7 @@ class ProjectCard extends React.Component {
         const node = this.props.project;
         return (
             <Col key={node.id} style={{padding: `1em`}}>
-                <div className="projectCard" onMouseEnter={this.onHoverStart} onMouseLeave={this.onHoverEnd}>
+                <div role="button" className="projectCard" onMouseEnter={this.onHoverStart} onMouseLeave={this.onHoverEnd} tabIndex={0}>
                         <Card.Header className="projectName">{node.Name}</Card.Header>
                         <Card.Text className="projectDescription">{node.Description}</Card.Text>
                         <a href={node.Link} className="projectLink">

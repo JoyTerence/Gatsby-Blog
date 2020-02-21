@@ -15,8 +15,8 @@ var _ = require('lodash');
 
 const IndexPage = ({ data }) => {
 
-    var dataNodes = data.allProjectsJson.edges.map(({ node }) => (
-        < ProjectCard key = {node.id} project={node} /> 
+    var dataNodes = data.allProjectsJson.edges.map(( {node} ) => (
+        < ProjectCard key = {node.id} project={node}/> 
     ))
 
     // console.log("*****************")

@@ -1,7 +1,7 @@
 ---
 title: Neurons? Explain it to me like 5 year old...
 description: A very simple introduction to how Neurons works... minus the complex math!!
-date: '07-17-2019'
+date: '2019-07-17'
 image: ./neuron.webp
 tags: ['deep learning','machine learning','neuron']
 ---

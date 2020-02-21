@@ -16,8 +16,6 @@ import { FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
 import { MdSearch, MdClose } from "react-icons/md";
 import searcher from "../components/search-util"
 
-var _ = require('lodash')
-
 const BlogPage = ({ data }) => {
 
   const [descorder, setDescOrder] = useState(true)
@@ -25,7 +23,7 @@ const BlogPage = ({ data }) => {
   const [tags, setTags] = useState([])
   const [nodes, setNodes] = useState(data.allMarkdownRemark.edges)
 
-  const tagColors = ["lightblue", "lightgreen", "lightcyan", "lightyellow", "lightgrey", "lightred", "lightgreen"]
+  const tagColors = ["lightblue", "lightgreen", "lightsalmon", "lightyellow", "lightgrey", "lightred", "lightgreen"]
 
   const onclick = () => {
     setDescOrder(!descorder)
@@ -76,7 +74,7 @@ const BlogPage = ({ data }) => {
       <span className="main-title"> <b> Scribble.. Scribble.. </b> </span>
       <div className="main-bar-container"></div>
       <div className="sort-search-container">
-        <div className="sort-container" onClick={onclick}>
+        <div role="button" className="sort-container" onClick={onclick} onKeyDown={onclick} tabIndex={0}>
           <IconContext.Provider value={{color: `black`, size: `2em`}}>
             < TiDocumentText /> 
           </IconContext.Provider>
@@ -86,7 +84,7 @@ const BlogPage = ({ data }) => {
         </div>
         <div className="search-container">
           <input type="text" className="search-bar" placeholder="Search by tags..." onKeyDown={handleKeyDown}  onChange={onSearchChange}/>
-          <div onClick={onSearchIconClick}>
+          <div role="button" onClick={onSearchIconClick} onKeyDown={onSearchIconClick} tabIndex={0}>
             <IconContext.Provider value={{color: `black`, size: `2em`, }} >
               < MdSearch /> 
             </IconContext.Provider>
@@ -98,7 +96,7 @@ const BlogPage = ({ data }) => {
           tags.map((tag, index) => 
             <div key={Math.random()} className="search-tags">
               <span style={{color: "black", fontWeight: 500}}>{tag}</span>
-              <div onClick={() => onSearchTagClick(index)} >
+              <div role="button" onClick={() => onSearchTagClick(index)}  onKeyDown={() => onSearchTagClick(index)} tabIndex={0} >
                 <IconContext.Provider value={{color: `black`, size: `1em`}}>
                   < MdClose />
                 </IconContext.Provider>
@@ -126,9 +124,9 @@ const BlogPage = ({ data }) => {
                     <span>{node.frontmatter.description}</span>
                   </div>
                   <div className="tag-container">
-                    {node.frontmatter.tags.map(tag => 
+                    {node.frontmatter.tags.map((tag, index) => 
                         <div key={Math.random()} style={{fontSize: `1vh`, margin: `0.5em`}}>
-                          <Badge style={{ width: `max-content`, backgroundColor: _.sample(tagColors)}} pill="true" variant="primary">
+                          <Badge style={{ width: `max-content`, backgroundColor: tagColors[index]}} pill="true" variant="primary">
                             <span style={{color: "black", fontWeight: 700}}>{tag}</span>
                           </Badge>
                         </div>
