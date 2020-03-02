@@ -13,4 +13,12 @@ Qraphql is one of the exciting technologies that heavily utilizes graph based re
 ---
 
 With GraphQL, you model your business domain as a graph. 
-This is acheived by defining schemas, where we define different data
+
+This is acheived by defining schemas, where we define different data and their types and relations.
+
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
