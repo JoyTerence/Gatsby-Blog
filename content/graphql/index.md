@@ -45,7 +45,7 @@ query {
 
 ---
 
-**_<h2>Advantages</h2>_**
+**<h4>Advantages</h4>**
 
 **Single Endpoint and tailored data**
 
@@ -54,3 +54,64 @@ GraphQL is designed to work through only one endpoint. Using this endpoint, one 
 **Peformance and Optimization**
 
 GraphQL is generally the least possible request, hence the affects on performance is not intensive if the database fetch and writes are efficiently written. During my discussions with a fellow Avaya employee, I was asked how would a query for particular fields from database(GraphQL) be efficient than the entire dump of data(REST). This again depends on how the resolver functions(functions responsible for fetching the data in GraphQL) are written. With the former there is lesser reads/writes and also lesser bits transferred over the wire. REST might lead to situations of heavy network loads. And yes, before you point it out, REST does come with caching. I'll cover it in the disadvantages section.
+
+**Version Management**
+
+With an end point that provides with no means of control over data, any change will be a breaking change, which is tackled by means of versioning. 
+
+There are two ways to maintain backward compatibility:
+* Create different API versions
+* Evolve one API version
+
+In case of GraphQL, it follows the second method and thus new features can be added as new fields without a breaking change. [This is what GraphQL creators said about this](https://graphql.org/learn/best-practices/#versioning).
+
+> While there’s nothing that prevents a GraphQL service from being versioned just like any other REST API, GraphQL takes a strong opinion on avoiding versioning by providing the tools for the continuous evolution of a GraphQL schema.
+
+**<h4>Disadvantages</h4>**
+
+**Error Management**
+
+Checking the response status is enough to get an idea about the type of error in case of REST. But in GraphQL every error is sent as a payload with 200 Success.  
+
+```json
+{
+  "data": null,
+  "errors": [
+    {
+      "message": "Parsing error...",
+      "locations": [
+        {
+          "line": 15,
+          "column": 16
+        }
+      ]
+    }
+  ]
+}
+```
+It is an added overhead to parse this payload to find the exact error message. Moreover, the payload could be different for different errors too.
+
+**Lack of web-caching**
+
+A HTTP level cache reduces the traffic/load to a server. This can be easily acheived using REST API due to it's multiple endpoints (using URL patterns, HTTP methods ...). However with GraphQL, with its single endpoint, it is hard to realize the benefits of the caching. Using third party tools to acheive would be an additional complex layer for what is achieved easily in REST.
+
+**Static schemas**
+
+The entire functionality revolves around the schemas. What the client can request and get as response is dictated by the schema definition designed and the query the client makes. As of today, there is limited support to modify these schemas at runtime. This could lead to bad practises like relying heavily on resolvers for complex requirements, which means abandoning many of the benefits brought by GraphQL. Such as a generic schema as follows:
+
+```graphql
+type Query {
+  request(query: String!): Response
+}
+ 
+type Response {
+  body: String
+}
+```
+
+**What should you do?**
+---
+Ironicaly, the conclusion here might sound inconclusive. 
+
+![](dont-know.gif)
+But truth be told, it entirely depends on your requirements.
