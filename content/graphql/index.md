@@ -10,13 +10,13 @@ tags: ['graphql','facebook','query-manipulation language', 'REST']
 
 ---
 
-Traditionally REST APIs are used for quite some time now to fetch data from a server to a client. Due to its stateless nature and clear advantages over SOAP, it was readily adopted and used by the community. However, as with anything, REST has few flaws. The URL based fetching of resources places an significant burden to remember the multiple endpoints. The other problem is rather a basic one, the `REST fails to provide the client with only the required data`.
+Traditionally REST APIs are used for quite some time now to fetch data from a server to a client. Due to its stateless nature and clear advantages over SOAP, it was readily adopted and used by the community. However, as with anything, REST has few flaws. The URL based fetching of resources places a significant burden to remember the multiple endpoints. The other problem is rather a basic one, the `REST fails to provide the client with only the required data`.
 
 GraphQL, a query language was released on 2015 by Facebook, is one of the exciting technologies that heavily utilizes graph based relationships between data and provides a  powerful means of querying and manipulating it.
 
 It should be also noted that GraphQL is _transport-layer agnostic_ and _database agnostic_. This means that it does not care about the network protocol (TCP, Websockets...) nor does it care about the database (MySQL, MongoDB...) used to store and query data. GraphQL is querying language for the APIs and not to be mistaken as query language for databases.
 
-With GraphQL, you model your business domain as a graph.
+> With GraphQL, you model your business domain as a graph.
 
 In the server, this is achieved by defining schemas. Here we define different data and their types and relations.
 
