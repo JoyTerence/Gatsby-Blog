@@ -73,7 +73,7 @@ In case of GraphQL, it follows the second method and thus new features can be ad
 
 #### Easy to learn
 
-GraphQL is easy to learn and the docs are really helpful. One can also make use of GraphiQL which can be used to test out the apis. [This Interactive GraphQL playground provided by GitHub](https://developer.github.com/v4/explorer/) helped me save time on structuring my queries while developing a react native app.
+GraphQL is easy to learn and the docs are really helpful. One can also make use of GraphiQL which can be used to test out the APIs. [This Interactive GraphQL playground provided by GitHub](https://developer.github.com/v4/explorer/) helped me save time on structuring my queries while developing a react native app.
 
 ### Disadvantages
 
