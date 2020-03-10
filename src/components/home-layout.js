@@ -11,7 +11,7 @@ import { StaticQuery, graphql, Link} from "gatsby"
 import { Location } from '@reach/router';
 
 import "./homeLayout.css"
-import { MdHome, MdAdd, MdClose, MdContactPhone } from "react-icons/md";
+import { MdAdd, MdClose, MdContactPhone } from "react-icons/md";
 import { GiFiles, GiGears } from "react-icons/gi";
 import { AiTwotoneHome } from "react-icons/ai";
 import { IconContext } from "react-icons";
