@@ -156,3 +156,7 @@ footer {
   margin: 0 auto;
   text-shadow: 0 0 10px #888888, 0 0 20px #888888;
 }
+
+ul > a, li {
+  background-color: white;
+}
