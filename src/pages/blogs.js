@@ -21,9 +21,11 @@ const BlogPage = ({ data }) => {
   const [descorder, setDescOrder] = useState(true)
   const [searchTerm, setSearchTerm] = useState("")
   const [tags, setTags] = useState([])
+  const [topic, setTopic] = useState("")
   const [nodes, setNodes] = useState(data.allMarkdownRemark.edges)
 
-  const tagColors = ["lightblue", "lightgreen", "lightsalmon", "lightyellow", "lightgrey", "lightred", "lightgreen"]
+  const tagColors = [ "lightblue", "lightgreen", "lightsalmon", "lightyellow", "lightgrey", "lightred", "lightgreen" ]
+  const topics = [ "Tech", "Music", "Travel", "Misc" ]
 
   const onclick = () => {
     setDescOrder(!descorder)
@@ -40,7 +42,6 @@ const BlogPage = ({ data }) => {
         setNodes(searcher(data.allMarkdownRemark.edges, tagArray))
         setTags(tags => tagArray)
       }
-
     }
   }
 
@@ -66,6 +67,19 @@ const BlogPage = ({ data }) => {
       setNodes(searcher(data.allMarkdownRemark.edges, tagArray))
     }
     setTags(tags => tagArray)
+  }
+
+  const onTopicClick = (index) => {
+    console.log("State: " + topic)
+    console.log(topics[index])
+    if (topic === "") {
+      setTopic(topics[index])
+    }
+    else if(topic == topics[index]) {
+      console.log("Same topic selected")
+      setTopic("")
+    }
+    console.log(topic)
   }
 
   return (
@@ -101,6 +115,14 @@ const BlogPage = ({ data }) => {
                   < MdClose />
                 </IconContext.Provider>
               </div>
+            </div>
+        )}
+      </div>
+      <div className="topics-container">
+        {
+          topics.map((tag, index) => 
+            <div key={Math.random()} className="topic" role="button" onClick={() => onTopicClick(index)}>
+              {tag}
             </div>
         )}
       </div>
