@@ -14,7 +14,7 @@ import { IconContext } from "react-icons";
 import { TiDocumentText } from "react-icons/ti";
 import { FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
 import { MdSearch, MdClose } from "react-icons/md";
-import searcher from "../components/search-util"
+import { fetchByTags, fetchByTopic } from "../components/search-util";
 
 const BlogPage = ({ data }) => {
 
@@ -26,6 +26,7 @@ const BlogPage = ({ data }) => {
 
   const tagColors = [ "lightblue", "lightgreen", "lightsalmon", "lightyellow", "lightgrey", "lightred", "lightgreen" ]
   const topics = [ "Tech", "Music", "Travel", "Misc" ]
+  const noPostDescription = "This seems wrong!! I need to write more..."
 
   const onclick = () => {
     setDescOrder(!descorder)
@@ -39,7 +40,7 @@ const BlogPage = ({ data }) => {
       if (e.target.value !== "") {
         e.target.value = ""
         tagArray = Array.from(new Set([...tags, searchTerm]))
-        setNodes(searcher(data.allMarkdownRemark.edges, tagArray))
+        setNodes(fetchByTags(data.allMarkdownRemark.edges, tagArray))
         setTags(tags => tagArray)
       }
     }
@@ -52,7 +53,7 @@ const BlogPage = ({ data }) => {
   const onSearchIconClick = () => {
     if (searchTerm !== "") {
       tagArray = Array.from(new Set([...tags, searchTerm]))
-      setNodes(searcher(data.allMarkdownRemark.edges, tagArray))
+      setNodes(fetchByTags(data.allMarkdownRemark.edges, tagArray))
       setTags(tags => tagArray)
     }
   }
@@ -64,22 +65,25 @@ const BlogPage = ({ data }) => {
       setNodes(data.allMarkdownRemark.edges)
     }
     else {
-      setNodes(searcher(data.allMarkdownRemark.edges, tagArray))
+      setNodes(fetchByTags(data.allMarkdownRemark.edges, tagArray))
     }
     setTags(tags => tagArray)
   }
 
   const onTopicClick = (index) => {
-    console.log("State: " + topic)
-    console.log(topics[index])
-    if (topic === "") {
-      setTopic(topics[index])
-    }
-    else if(topic == topics[index]) {
+    var selectedTopic = topics[index]
+
+    if (topic === selectedTopic) {
       console.log("Same topic selected")
+      setNodes(data.allMarkdownRemark.edges)
       setTopic("")
     }
-    console.log(topic)
+    else {
+      console.log("Setting topic to: " + selectedTopic)
+      setNodes(fetchByTopic(data.allMarkdownRemark.edges, selectedTopic))
+      setTopic(selectedTopic)
+    }
+
   }
 
   return (
@@ -110,7 +114,7 @@ const BlogPage = ({ data }) => {
           tags.map((tag, index) => 
             <div key={Math.random()} className="search-tags">
               <span style={{color: "black", fontWeight: 500}}>{tag}</span>
-              <div role="button" onClick={() => onSearchTagClick(index)}  onKeyDown={() => onSearchTagClick(index)} tabIndex={0} >
+              <div role="button" className="tag-close-btn" onClick={() => onSearchTagClick(index)}  onKeyDown={() => onSearchTagClick(index)} tabIndex={0} >
                 <IconContext.Provider value={{color: `black`, size: `1em`}}>
                   < MdClose />
                 </IconContext.Provider>
@@ -120,12 +124,18 @@ const BlogPage = ({ data }) => {
       </div>
       <div className="topics-container">
         {
-          topics.map((tag, index) => 
-            <div key={Math.random()} className="topic" role="button" onClick={() => onTopicClick(index)}>
-              {tag}
+          topics.map((topicDisplayed, index) => 
+            <div key={Math.random()} className={"topic " + (topicDisplayed === topic ? "topic-selected": "")} role="button" onClick={() => onTopicClick(index)} onKeyDown={() => onTopicClick(index)} tabIndex={0}>
+              {topicDisplayed}
             </div>
         )}
       </div>
+      {
+        nodes.length === 0? 
+          <div className="no-post-disclaimer">
+            {noPostDescription}
+          </div> : <div></div>
+      }
       <div>
         {nodes.filter(function(node) {
           if (node.node.fields.slug === "/aboutme/") {
@@ -184,6 +194,7 @@ export const query = graphql`
             date
             description
             tags
+            topic
             image {
               childImageSharp {
                 fluid(maxWidth: 100, quality: 100) {

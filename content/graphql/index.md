@@ -3,6 +3,7 @@ title: GraphQL
 description: Should you switch to graphql?
 date: '2020-02-20'
 image: ./graphql.png
+topic: Tech
 tags: ['graphql','facebook','query-manipulation language', 'REST']
 ---
 

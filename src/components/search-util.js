@@ -1,5 +1,5 @@
-const searcher = ( data, tags ) => {
-    
+export const fetchByTags = ( data, tags ) => {
+    console.log("here")
     data = data.filter(elem => {
         if (elem.node.fields.slug !== "/aboutme/") {
             var subjectArray = elem.node.frontmatter.tags;
@@ -21,4 +21,23 @@ const searcher = ( data, tags ) => {
     return data
 }
 
-export default searcher;
+export const fetchByTopic = (data, topic) => {
+
+    console.log(typeof(data))
+
+    data = data.filter(elem => {
+        if (elem.node.fields.slug !== "/aboutme/") {
+            var subjectArray = elem.node.frontmatter.topic.toUpperCase();
+            var fetchTopic = topic.toUpperCase();
+
+            if (subjectArray === fetchTopic) {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+        return false
+    })
+    return data
+}
