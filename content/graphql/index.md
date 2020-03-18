@@ -49,7 +49,7 @@ query {
 ![thinking](./thinking.webp)
 
 ### Advantages
-
+---
 #### Single Endpoint and tailored data
 
 GraphQL is designed to query via only one endpoint. Using this endpoint, one can query a personalized data. This means that the developer needs to know only the format of data. Unlike REST, where one needs to remember the format of data and parse for relevant fields in the data dump as well as remember the multiple endpoints to recieve these dumps.
@@ -77,10 +77,10 @@ In case of GraphQL, it follows the second method and thus new features can be ad
 GraphQL is easy to learn and the docs are really helpful. One can also make use of GraphiQL which can be used to test out the APIs. [This Interactive GraphQL playground provided by GitHub](https://developer.github.com/v4/explorer/) helped me save time on structuring my queries while developing a react native app.
 
 ### Disadvantages
-
+---
 #### Error Management
 
-Checking the response status is enough to get an idea about the type of error, while querying for the data, in case of REST. But in GraphQL every error is sent as a payload with 200 Success. This forces the client to implement the parsing logic.
+Usually, checking the response status is enough to get an idea about the type of error during fetching of data, as seen in REST. But in GraphQL every error is sent as a payload with 200 Success. This forces the client to implement the parsing logic.
 
 ```json
 {
@@ -129,3 +129,8 @@ But truth be told, it entirely depends on your requirements.
 GraphQL is the new kid on the block. It brings with it a number of exciting features. But it is important to understand the tradeoffs before making architectural decisions of migration. I would recommend staying with REST when there are fewer entities and lesser need for establishing complex relationships between the data. GraphQL shines when there is a need to establish such relationships on data across various domains such as payments, users, activities, orders, history etc.
 
 I recommend going through the [official documentation](https://graphql.org/learn/) provided by Facebook and various sources to get additional insights while making a decision to stay on REST or to migrate to GraphQL.
+
+
+---
+
+**[Link to my GraphQL based React native project](https://github.com/JoyTerence/GithubTriage)**
