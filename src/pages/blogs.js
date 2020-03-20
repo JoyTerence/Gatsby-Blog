@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
@@ -21,12 +21,17 @@ const BlogPage = ({ data }) => {
   const [descorder, setDescOrder] = useState(true)
   const [searchTerm, setSearchTerm] = useState("")
   const [tags, setTags] = useState([])
-  const [topic, setTopic] = useState("")
+  const [topic, setTopic] = useState("Tech")
   const [nodes, setNodes] = useState(data.allMarkdownRemark.edges)
 
   const tagColors = [ "lightblue", "lightgreen", "lightsalmon", "lightyellow", "lightgrey", "lightred", "lightgreen" ]
   const topics = [ "Tech", "Music", "Travel", "Misc" ]
   const noPostDescription = "This seems wrong!! I need to write more..."
+
+  useEffect(() => {
+    setNodes(fetchByTopic(data.allMarkdownRemark.edges, topic))
+    setTopic(topic)
+  }, []);
 
   const onclick = () => {
     setDescOrder(!descorder)
@@ -72,18 +77,11 @@ const BlogPage = ({ data }) => {
 
   const onTopicClick = (index) => {
     var selectedTopic = topics[index]
-
-    if (topic === selectedTopic) {
-      console.log("Same topic selected")
-      setNodes(data.allMarkdownRemark.edges)
-      setTopic("")
-    }
-    else {
+    if(topic !== selectedTopic) {
       console.log("Setting topic to: " + selectedTopic)
       setNodes(fetchByTopic(data.allMarkdownRemark.edges, selectedTopic))
       setTopic(selectedTopic)
     }
-
   }
 
   return (

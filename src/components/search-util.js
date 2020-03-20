@@ -1,5 +1,5 @@
 export const fetchByTags = ( data, tags ) => {
-    console.log("here")
+    
     data = data.filter(elem => {
         if (elem.node.fields.slug !== "/aboutme/") {
             var subjectArray = elem.node.frontmatter.tags;
@@ -9,6 +9,7 @@ export const fetchByTags = ( data, tags ) => {
             searchKeyArray = searchKeyArray.map(function(x){return x.toUpperCase()})
 
             var found = searchKeyArray.some(r => subjectArray.indexOf(r) >= 0)
+            
             if (found) {
                 return true
             }
@@ -23,14 +24,12 @@ export const fetchByTags = ( data, tags ) => {
 
 export const fetchByTopic = (data, topic) => {
 
-    console.log(typeof(data))
-
     data = data.filter(elem => {
         if (elem.node.fields.slug !== "/aboutme/") {
-            var subjectArray = elem.node.frontmatter.topic.toUpperCase();
+            var blogTopic = elem.node.frontmatter.topic.toUpperCase();
             var fetchTopic = topic.toUpperCase();
 
-            if (subjectArray === fetchTopic) {
+            if (blogTopic === fetchTopic) {
                 return true
             }
             else {
