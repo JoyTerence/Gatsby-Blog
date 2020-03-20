@@ -38,7 +38,7 @@ __Future__
 React Native is being challenged by Google's Flutter. Though relatively new, Flutter seems to outperform React Native, mainly in the performance section. The proponents of Flutter stress on the significance of adoption of Dart by the framework. Unlike Javascript, which is known for being messy, Dart is quite easier to understand due to its similarity to Java.
 The informative and easy to understand documentation provided by Google  also adds to the point under the Flutter column. Given the head start react native had, Flutter suffered from lack of support to various features. However, lately this support has been extended and it is not regarded as the achilles heel.
 
-While there has been a increase in popularity for both the frameworks, the native development still wins the prize mainly due to its performance and feature availability. Companies, scared of missing the boat and attracted by the '_code once, use everywhere_', shifted their code base to react native and later realised that its disadvantages were significant enough to shift back to native development. Check this [post on Medium](https://medium.com/airbnb-engineering/react-native-at-airbnb-f95aa460be1c) about the the move to react native and back to native by Airbnb.
+While there has been a increase in popularity for both the frameworks, the native development still wins the prize mainly due to its performance and feature availability. Companies, scared of missing the boat and attracted by the '_code once, use everywhere_', shifted their code base to react native and later realised that its disadvantages were significant enough to shift back to native development. Check this [post on Medium](https://medium.com/airbnb-engineering/react-native-at-airbnb-f95aa460be1c) about the move to react native and back to native by Airbnb.
 
 __Final thoughts__
 ***
@@ -46,4 +46,4 @@ I had a wonderful learning experience with react native. Personally, I feel it i
 
 __Links to my react native apps__
 ***
- - [Github-Triage](https://github.com/JoyTerence/Github-Triage)
+ - [Github-Triage](https://github.com/JoyTerence/GithubTriage)
