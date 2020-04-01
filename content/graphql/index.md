@@ -46,7 +46,7 @@ query {
 ## Things to consider:
 
 ---
-![thinking](./thinking.webp)
+![thinking](./thinking.jpg)
 
 ### Advantages
 ---
