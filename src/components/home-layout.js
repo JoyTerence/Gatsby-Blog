@@ -16,6 +16,8 @@ import { GiFiles, GiGears } from "react-icons/gi";
 import { AiTwotoneHome } from "react-icons/ai";
 import { IconContext } from "react-icons";
 
+import "katex/dist/katex.min.css"
+
 import {
   FloatingMenu,
   MainButton,
