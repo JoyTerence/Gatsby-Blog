@@ -6,7 +6,7 @@ image: ./neuron.jpg
 topic: Tech
 tags: ['deep learning','machine learning','neuron']
 ---
-![](./neuron.webp)
+![](./neuron.png)
 
 #### Neurons 
 ---
