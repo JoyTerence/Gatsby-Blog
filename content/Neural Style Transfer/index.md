@@ -7,36 +7,41 @@ topic: Tech
 tags: ['graphql','facebook','query-manipulation language', 'REST']
 ---
 
-This blog aims to discuss the intuitive thinking behind getting a neural network to perform a task for us, specifically the Neural Style Transfer **(NST)**. No code will be discussed and in fact to make it a fun read to every reader, it also assumes no in depth knowledge of neural network.
+This blog aims to discuss the intuitive thinking behind getting a neural network to perform a task for us, specifically the Neural Style Transfer **(NST)**. No code will be discussed and in fact to make it a fun read to every reader, it also assumes none to minimum knowledge of neural network.
 
-In case you are wondering what is this catchy phrase 'neural style transfer', let me tell you about it. It is not catchy anymore. With that being told, it's basically taking two images and making the first image appear as if painted with second image's style.
+In case you are wondering what is this catchy phrase 'neural style transfer', let me tell you about it. It's basically taking two images and making the first image appear as if painted with second image's style.
 
 To make it much clearer, here's my best friend [Ana de Armas](https://www.google.com/search?q=ana+de+armas) explaining to you:
 
-![](./Ana-de-Armas-style-transfer.png)
+![Style-Transfer](./Style-Transfer.PNG)
 
-As tradition, let's quickly read and ignore the history.
+Before we begin, as per the tradition, let's quickly read and ignore the history.
 
-### Once upon a time...
+#### Once upon a time...
 
 ---
 
 Initially to achieve this mixing of style, the procedure followed was as follows:
-* Somehow get a image A and it's already styled photo A'.
-* Learn the transformation from getting A → A'.
-* Given another image B, use it to generate B' using the transformation learnt from A → A'.
 
-Major drawback, it was difficult to collect pairs of A and A' for learning and also difficult to learn such transformation which could be applied on other images (B).
+* Collect many images, say A, and their already styled photo, say A'.
 
-[Leon Gatys](https://scholar.google.co.in/citations?user=ADMVEmsAAAAJ&hl=en), [Alexander Ecker](https://scholar.google.co.in/citations?user=VgYU_m8AAAAJ&hl=en) And [Matthias Bethge](https://scholar.google.com/citations?user=0z0fNxUAAAAJ&hl=en) introduced NST in their paper ["A Neural Algorithm of Artistic Style"](https://arxiv.org/abs/1508.06576) published in the year 2015.
+* Somehow learn the transformation from getting A → A'.
 
+* Given a new image B, use it to generate B' using the transformation learnt from A → A'.
+
+The major drawback of this method was the difficulty in collecting pairs of A and A' for learning and also the difficulty in learning such a transformation which could be applied on other images (B). This was one of the major hurdles faced during that time and it seemed that without a breakthrough technique, which solved these issues, any realistic progress could not be acheived.
+
+#### The Breakthrough
+
+---
+
+[Leon Gatys](https://scholar.google.co.in/citations?user=ADMVEmsAAAAJ&hl=en), [Alexander Ecker](https://scholar.google.co.in/citations?user=VgYU_m8AAAAJ&hl=en) And [Matthias Bethge](https://scholar.google.com/citations?user=0z0fNxUAAAAJ&hl=en) introduced NST in their paper ["A Neural Algorithm of Artistic Style"](https://arxiv.org/abs/1508.06576) published in the year 2015. It not only solved the above problems but paved way to many modifications/alterations on this technique that were able to achieve real time generation of the styled image.
 
 #### Why NST is remarkable
 
 ---
 
-As with other developments in deep neural network world, this introduced a different view to the problem. It discussed about the representation of the content from the first image (content image) and the appearance of the second image (style image) and how to combine them using deep neural network to get the desired output. 
-
+As with other developments in deep neural network world, this introduced a different view to the problem. It discussed about the representation of the content from the first image (content image) and the appearance of the second image (style image) and how to combine them using deep neural network to get the desired output.
 
 ### Here we go...
 
