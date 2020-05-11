@@ -136,4 +136,4 @@ We were lagging behind in tasks like generating artistic artefacts having high p
 Even though these techniques might be quite complex at the first glance, they all have one thing in common. Their foundation is often backed by a simple intuitive thinking. Above this foundation, there could be various clever tactics employed either in the math or in the code. For example, with respect to the above NST, we could reduce the time and processing by avoiding a third image but instead reuse the first image itself as the output image. This is infact the approach used by one of the papers to achieve real time style transfer. That's a discussion for some other time. 🍺 
 
 
-
+[Github Link](https://github.com/JoyTerence/Style-Transfer)
