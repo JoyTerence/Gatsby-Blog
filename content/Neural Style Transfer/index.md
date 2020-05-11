@@ -4,7 +4,7 @@ description: How does prism and other apps achieve style transfer in images?
 date: '2020-04-22'
 image: ./sketching.jpg
 topic: Tech
-tags: ['graphql','facebook','query-manipulation language', 'REST']
+tags: ['neural style transfer','ML','DL', 'neural networks', 'prisma']
 ---
 
 This blog aims to discuss the intuitive thinking behind getting a neural network to perform a task for us, specifically the Neural Style Transfer **(NST)**. No code will be discussed and in fact to make it a fun read to every reader, it also assumes none to minimum knowledge of neural network.
@@ -15,7 +15,7 @@ To make it much clearer, here's my best friend [Ana de Armas](https://www.google
 
 ![Style-Transfer](./Style-Transfer.PNG)
 
-Before we begin, as per the tradition, let's quickly read and ignore the history.
+Before we begin, as per tradition, let's quickly read and ignore the history.
 
 #### Once upon a time...
 
@@ -43,11 +43,11 @@ The major drawback of this method was the difficulty in collecting pairs of A an
 
 As with other developments in deep neural network world, this introduced a different view to the problem. It made use of two terms:
 
-* Content Image: the 'structure' or the representation of the content from the first image.
+* Content Image: the 'structure' or the representation of the content of the first image.
 
-* Style Image: the 'appearance' or style of from the second image. 
+* Style Image: the 'appearance' or style of the second image. 
 
-The paper discussed about how to use the above to create a new third image that has content of first and style of second. It leveraged the processing of information that travelled across the layers of neural network. Or in other words, it took advantage of what a neural network saw in the input image to generate the mixed output image. Let's see how and what exactly it achieved. But before that, a bit about what neural networks are and what do they _see_ when we give an image as input.
+The paper discussed about how to use the above to create a new third image that has content of first and style of second. It leveraged the processing of information that travelled across the layers of neural network. Or in other words, it took advantage of what a neural network saw in the two input images to generate the mixed output image. Let's see how and what exactly it achieved. But before that, a bit about what neural networks are and what do they _see_ when we give an image as input.
 
 ### Here we go...
 
@@ -61,7 +61,7 @@ In short, as you progress across the layers, the networks is able to see a bigge
 
 **NOTE**: 
 
-_I have told that neural networks learn about structure of eyes and so on from human image. But this is not true always. Truth is that neural network behaves like a blackbox. We never know what it learns, but after running it against thousands of images, it is safe to assume that neural network learns such 'bigger' picture in its own way for now._
+_I have told that neural networks learn about structure of eyes and so on from human image. But this is not true always. Truth is that a neural network behaves like a blackbox. We never know what it will learn, but after running it against thousands of images, it is safe to assume that neural network learns such 'bigger' picture in its own way for now._
 
 With this making sense, it makes it easier to explain the idea behind the paper.
 
@@ -81,7 +81,7 @@ For this, we need to understand a bit more about what actually happens at the la
 
 ![](./2D_Convolution_Animation.gif)
 
-For every layer in the neural network, a matrix called as kernal or filter is applied on to the image as shown above. What this kernal looks for is entirely random. It could be assumed as a straight line, stroke of a particular color and so on. When it gets whatever it is looking for, it puts a bigger number on the corresponding box of the output image. Read this again by looking at the animation above.
+For every layer in the neural network, a matrix called as kernal or filter is applied on to the image as shown above. What this kernal looks for is entirely random. It could be assumed as a straight line, stroke of a particular color and so on. When it gets whatever it is looking for, it puts a bigger number on the corresponding box of the output matrix. This matrix is the input to the next layer. Read this again by looking at the animation above.
 
 And every layer is applied with a number of such filters, so if we feed in a single 10 * 10 image to a layer which applies 5 different filters as above we will get 5 such 10 * 10 output (let's not worry about strides and padding in the kernel for now). Again refer the image below to get a fair understanding.
 
@@ -91,17 +91,17 @@ The second stage above has 3 rectangles because the input image was operated on 
 
 So now we _kinda_ know what happens to a layer in a neural network aka Convolutional Neural Network. Let's get back to the problem of extracting the **style** from the second image.
 
-Recollect that neural network sees the 'bigger' picture in the later layers. But the style from the image is more related to those minute things like stroke of brush, the simple random patterns. It is now obvious that we should take the input from first few layers of neural network as we want the 'smaller' picture of the image. We need to fetch the information from earlier layers to get the **style**. 
+Recollect that neural network sees the 'bigger' picture in the later layers. But the style from the image is more related to those minute things like stroke of brush, the simple random patterns. So it becomes obvious that we should take the input from first few layers of neural network as we want the 'smaller' picture of the image. We need to fetch this information from earlier layers to get the **style**. 
 
 We again feed the second image to the VGG19 Neural network and only pick the output from the first few layers, like for example the first 3
-rectangles from the above image. However we don't need every information from these 3 layer outputs, we need only things that are common across them. But how do we find the common things that is present in these 3 layers? Maths comes to the rescue. The research paper suggests about using 'Gram matrices' of these 3 layer outputs. (Won't go in detail as to what exactly this is, but it is enough for the scope of this blog to accept that this somehow fetches only the common details present in all the 3 layer outputs). At the moment, let's accept that after performing this 'gram matrix' operation on the 3 layers, we will get the **style** of the image.
+rectangles from the above image. However we don't need every information from these 3 layer outputs, we need only things that are common across them. But how do we find the common things that is present in these 3 layers? Maths comes to the rescue. The research paper suggests using 'Gram matrices' of these 3 output layers. (Won't go in detail as to what exactly this is, but it is enough for the scope of this blog to accept that this somehow fetches only the common details present in all the 3 layers). After performing this 'gram matrix' operation on the 3 layers, we will get the **style** of the image.
 
 Now we know what is the content from the first image and style from the second image and also how to fetch them. 
 But the question still remains how to generate the combined image!!
 
 Since you have been with me till here, let me tell you that things get pretty straightforward from here onwards.    
 
-To generate the output image, we make use of a new random image initialized with garbage values. We feed it across the same neural network and extract the **style** from the earlier layers and **content** from later layers. 
+To generate the output image, we make use of a new random image which is initially initialized with garbage values. We feed it across the same neural network and extract its **style** from the earlier layers and its **content** from later layers. 
 
 And then we compare the difference between the content obtained from this random image to the content obtained from the first image. Also, we simulatenously compare the difference between the style obtained from this random image to the style obtained from the second image.
 
@@ -124,7 +124,7 @@ $$
 
 (where L is loss, c is content, s is style, i is input-image, o is output-image and T is total)
 
-Now using this loss function we try to slightly modify the values of the random image ( this is done by using calculus ). Then again feed this slightly modified image into VGG19, again extract content and style, again compare it with the content image and style image, calculate the new value of loss from the loss function and use this loss to slightly modify the random image. We repeat the process until we cannot reduce the loss anymore. I agree that this is a lengthy and repetitive process, but as long as the computer does not complain we can make it to work as much as we want.
+Now using this loss function we try to slightly modify the values of the random image ( achieved by praying to calculus and getting its blessing ). Then again feed this slightly modified image into VGG19, again extract the content and the style, again compare it with the original content image and style image, calculate the extent of their difference from the loss function and use this loss to slightly modify the random image. We repeat the process until we cannot reduce the loss anymore. I agree that this is a lengthy and repetitive process, but as long as the computer does not complain we can make it to work as much as we want.
 
 When the loss does not reduce anymore, it indicates that our random image has evolved into the desired output image having the content very close to that of first input image and style very close to that of second input image. The next steps are straightforward too. You either build an app like prisma or write a blog 😃. 
 
@@ -133,7 +133,7 @@ When the loss does not reduce anymore, it indicates that our random image has ev
 
 We were lagging behind in tasks like generating artistic artefacts having high perceptual quality until recent time. The advancement of computing power, viz. GPUs and the state of the art deep learning techniques being invented everyday such as NST has opened up a plethora of opportunities and possibilities.
 
-Even though these techniques might be quite complex at the first glance, they all have one thing in common. Their foundation is often backed by a simple intuitive thinking. Above this foundation, there could be various clever tactics employed either in the math or in the code. For example, with respect to the above NST, we could reduce the time and processing by avoiding a third image but instead reuse the first image itself as the output image. This is infact the approach used by one of the papers to achieve real time style transfer.
+Even though these techniques might be quite complex at the first glance, they all have one thing in common. Their foundation is often backed by a simple intuitive thinking. Above this foundation, there could be various clever tactics employed either in the math or in the code. For example, with respect to the above NST, we could reduce the time and processing by avoiding a third image but instead reuse the first image itself as the output image. This is infact the approach used by one of the papers to achieve real time style transfer. That's a discussion for some other time. 🍺 
 
 
 
