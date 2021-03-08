@@ -29,6 +29,7 @@ module.exports = {
         gfm: true,
         // Plugins configs
         plugins: [
+          "gatsby-remark-sub-sup",
           {
             resolve: `gatsby-remark-katex`,
             options: {

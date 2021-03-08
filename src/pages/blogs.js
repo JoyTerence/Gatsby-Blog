@@ -25,13 +25,13 @@ const BlogPage = ({ data }) => {
   const [nodes, setNodes] = useState(data.allMarkdownRemark.edges)
 
   const tagColors = [ "lightblue", "lightgreen", "lightsalmon", "lightyellow", "lightgrey", "lightred", "lightgreen" ]
-  const topics = [ "Tech", "Music", "Travel", "Misc" ]
+  const topics = [ "Tech", /*"Music",*/ "Travel", "Misc" ]
   const noPostDescription = "This seems wrong!! I need to write more..."
 
   useEffect(() => {
     setNodes(fetchByTopic(data.allMarkdownRemark.edges, topic))
     setTopic(topic)
-  }, []);
+  }, [data.allMarkdownRemark.edges, topic]);
 
   const onclick = () => {
     setDescOrder(!descorder)
@@ -67,7 +67,7 @@ const BlogPage = ({ data }) => {
     tagArray = tags
     tagArray.splice(index, 1)
     if (tagArray === undefined || tagArray.length === 0) {
-      setNodes(data.allMarkdownRemark.edges)
+      setNodes(fetchByTopic(data.allMarkdownRemark.edges, topic))
     }
     else {
       setNodes(fetchByTags(data.allMarkdownRemark.edges, tagArray))
