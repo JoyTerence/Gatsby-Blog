@@ -1,96 +1,45 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql, Link} from "gatsby"
-import { Location } from '@reach/router';
-
-import "./homeLayout.css"
-import { MdAdd, MdClose, MdContactPhone } from "react-icons/md";
-import { GiFiles, GiGears } from "react-icons/gi";
-import { AiTwotoneHome } from "react-icons/ai";
-import { IconContext } from "react-icons";
+import { StaticQuery, graphql } from "gatsby"
 
 import "katex/dist/katex.min.css"
+import { ThemeProvider } from "theme-ui"
+import theme from "../gatsby-plugin-theme-ui"
 
-import {
-  FloatingMenu,
-  MainButton,
-  ChildButton,
-} from 'react-floating-button-menu';
+import Header from "./header"
 
-const HomeLayout = ({ children }) => {
-
-  const [isOpen, setOpen] = useState(false);
-
-  return (
-    <StaticQuery
-      query={graphql`
-        query SiteNameQuery {
-          site {
-            siteMetadata {
-              name
-            }
+const HomeLayout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query SiteNameQuery {
+        site {
+          siteMetadata {
+            name
           }
         }
-      `}
-      render={data => (
-        <>
-          <div className="main-container">
-            {children} 
+      }
+    `}
+    render={data => (
+      <ThemeProvider theme={theme}>
+        <React.Fragment>
+          <Header siteTitle={data.site.siteMetadata.name} />
+          <div
+            sx={{
+              margin: 5,
+              fontSize: 4,
+            }}
+          >
+            {children}
           </div>
-          <footer>
-            <Location>
-              {
-                ({ location }) => {
-                  var showhomebutton = location.pathname !== '/'
-                  return showhomebutton? 
-                  <FloatingMenu
-                    slideSpeed={500}
-                    direction="up"
-                    spacing={8}
-                    isOpen={isOpen}
-                  >
-                    <MainButton
-                      iconResting={<MdAdd style={{ fontSize: 30, color: "green"}} />}
-                      iconActive={<MdClose style={{ fontSize: 30, color: "red" }}/>}
-                      onClick={() => setOpen(!isOpen)}
-                      size={56}
-                    />
-                    <ChildButton
-                      icon={<IconContext.Provider value={{ color:`blue`}}><Link to="/"><AiTwotoneHome style={{ fontSize: 20 }}/></Link></IconContext.Provider>}
-                      size={40}
-                      onClick={() => console.log('Navigating to Home...')}
-                    />
-                    <ChildButton
-                      icon={<IconContext.Provider value={{ color:`orange`}}><Link to="/blogs"><GiFiles style={{ fontSize: 20 }}/></Link></IconContext.Provider>}
-                      size={40}
-                      onClick={() => console.log('Navigating to Blogs...')}
-                    />
-                    <ChildButton
-                      icon={<IconContext.Provider value={{ color:`green`, backgroundColor: 'white'}}><Link to="/projects"><GiGears style={{ fontSize: 20 }}/></Link></IconContext.Provider>}
-                      size={40}
-                      onClick={() => console.log('Navigating to Home...')}
-                    />
-                    <ChildButton
-                      icon={<IconContext.Provider value={{ color:`grey`}}><Link to="/contact-me"><MdContactPhone style={{ fontSize: 20 }}/></Link></IconContext.Provider>}
-                      size={40}
-                      onClick={() => console.log('Navigating to Contacts...')}
-                    />
-                  </FloatingMenu> : <div></div>
-                }
-              }
-            </Location>
-          </footer>
-        </>
-      )}
-    />
-  )}
+          <footer />
+        </React.Fragment>
+      </ThemeProvider>
+    )}
+  />
+)
 
 HomeLayout.propTypes = {
   children: PropTypes.node.isRequired,

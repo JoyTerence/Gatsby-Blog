@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import Badge from 'react-bootstrap/Badge'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import "../components/blogs.css"
+import "../styles/blogs.css"
 import HomeLayout from "../components/home-layout"
 import '../components/search-util'
 

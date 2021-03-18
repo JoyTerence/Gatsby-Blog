@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
     name:  `Joy Barnes`,
-    title: `Joy Barnes`,
+    customTitle: ["Software Engineer", "Avaya Bengaluru"],
     description: `A Personal Portfolio`,
-    author: `@gatsbyjs`,
+    resumePath: `./joyterencebarnes.pdf`,
+    author: `Joy Barnes`,
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -14,6 +16,12 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-theme-ui`,
+    //   options: {
+    //     preset: `@theme-ui/preset-funk`,
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

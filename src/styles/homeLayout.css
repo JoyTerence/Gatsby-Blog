@@ -5,16 +5,11 @@ html {
 }
 
 body {
-  background-color: #d3d3d3 !important;
-  margin: 0px;
-  min-height: 100%;
-  min-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
 
 footer {
@@ -24,7 +19,7 @@ footer {
 }
 
 .main-container {
-  /* background-color: yellow; */
+  background-color: red;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -38,8 +33,12 @@ footer {
 }
 
 @media only screen and (min-width: 768px) {
-  .main-top-container { flex-direction: row;}
-  #___gatsby{ width: 62%; }
+  .main-top-container {
+    flex-direction: row;
+  }
+  #___gatsby {
+    width: 62%;
+  }
 }
 
 .main-bot-container {
@@ -100,7 +99,11 @@ footer {
   box-shadow: 5px 10px 30px #888888;
 }
 
-.downloads, .projects, .contacts, .blogs, .profile {
+.downloads,
+.projects,
+.contacts,
+.blogs,
+.profile {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,6 +160,7 @@ footer {
   text-shadow: 0 0 10px #888888, 0 0 20px #888888;
 }
 
-ul > a, li {
+ul > a,
+li {
   background-color: white;
 }

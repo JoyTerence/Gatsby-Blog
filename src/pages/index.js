@@ -1,117 +1,240 @@
+/** @jsx jsx */
+import { jsx, css } from "theme-ui"
+
 import React from "react"
 
 import HomeLayout from "../components/home-layout"
 import SEO from "../components/seo"
 
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
-import { IconContext } from "react-icons";
-import { MdContactMail } from "react-icons/md";
-import { GoRepo, GoCloudDownload } from "react-icons/go";
-import { GiBookshelf } from "react-icons/gi";
+import { IconContext } from "react-icons"
+import { GiQuillInk, GiClick } from "react-icons/gi"
+import { ImDownload } from "react-icons/im"
+import { BsArrowReturnRight } from "react-icons/bs"
 
-const IndexPage = ({data}) => (
-  <HomeLayout>
-    <SEO title="Joy Barnes" keywords={[`portfolio`, `gatsby`, `application`, `react`]} />
-    <div className="main-top-container">
-            <div className="profile-container main-top-left-container">
-              <Link to="/about-me" target="_blank">
-                <div className="profile home-card">
-                  <div className="profile-img-container">
-                    <Img fluid={data.profilepic.childImageSharp.fluid} />
-                  </div>
-                  <div className="profile-desc-container">
-                    <b>Joy Barnes</b>
-                    <p>Senior Technical Associate, Avaya Bengaluru</p>
-                  </div>
-                </div>
-              </Link>
-            </div>
-            <div className="main-top-right-container">
-              <div className="blog-link-container">
-                <Link to="/blogs">
-                  <div className="blogs home-card">
-                    <div className="icon-container">
-                      <IconContext.Provider value={{color: `darkgoldenrod`, size: `3em`}}>
-                        < GiBookshelf />
-                      </IconContext.Provider>
-                    </div>
-                    <span className="icon-desc-container"><b>Blogs</b></span>
-                  </div>
-                </Link>
-              </div>
-              <div className="contact-download-container">
-                <div className="contact-link-container">
-                  <Link to="/contact-me">
-                    <div className="contacts home-card">
-                      <div className="icon-container">
-                        <IconContext.Provider value={{ color:`#e03434`, size: `3em`}}>
-                          < MdContactMail />
-                        </IconContext.Provider>
-                      </div>
-                      <span className="icon-desc-container"><b>Contact me here!</b></span>
-                    </div>
-                  </Link>
-                </div>
-                <div className="download-container">
-                  <a href="./joyterencebarnes.pdf" download>  
-                    <div className="downloads home-card">
-                      <div className="icon-container">
-                        <IconContext.Provider value={{ color:`black`, size: `3em`}}>
-                            < GoCloudDownload />
-                        </IconContext.Provider>
-                      </div>
-                      <span className="icon-desc-container"><b>Download my resume!</b></span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="main-bot-container">
-            <Link to="/projects">
-              <div className="projects home-card">
-                <div className="icon-container-project">
-                  <IconContext.Provider value={{color: `royalblue`, size: `3em`}}>
-                    < GoRepo />
+import AnimatedButton from "../components/awesomebutton"
+
+const IndexPage = ({ data }) => {
+  return (
+    <React.Fragment>
+      <HomeLayout>
+        <SEO
+          title="Joy Barnes"
+          keywords={[`portfolio`, `gatsby`, `application`, `react`]}
+        />
+        <div
+          sx={{
+            mt: 6,
+            fontWeight: "bold",
+            fontSize: 4,
+            color: "primary",
+          }}
+        >
+          <div
+            css={css({
+              display: `flex`,
+              flexDirection: `row`,
+              justifyContent: `space-around`,
+              height: "500px",
+            })}
+          >
+            <div
+              css={css({
+                display: `flex`,
+                flexDirection: `column`,
+                alignItems: `center`,
+              })}
+            >
+              <div>
+                <p sx={{ fontSize: 8 }}>Hello there!</p>
+                <p sx={{ fontSize: 5 }}>I'm {data.site.siteMetadata.name}</p>
+                {data.site.siteMetadata.customTitle.map((text, index) => (
+                  <span
+                    key={index}
+                    css={css({
+                      display: `flex`,
+                    })}
+                  >
+                    {text}
+                  </span>
+                ))}
+                <AnimatedButton fileDownload={false} url={"/about-me"}>
+                  <IconContext.Provider
+                    value={{ style: { marginLeft: "10px" }, size: `2em` }}
+                  >
+                    <GiClick />
                   </IconContext.Provider>
-                </div>
-                <span className="icon-desc-container"><b>Projects</b></span>
+                </AnimatedButton>
               </div>
-            </Link>
+            </div>
+            <div
+              css={css({
+                display: `flex`,
+                alignItems: `center`,
+              })}
+            >
+              <Img fixed={data.feeling_proud.childImageSharp.fixed} />
+            </div>
           </div>
-  </HomeLayout>
-)
+
+          <div
+            sx={{ mt: 6 }}
+            css={css({
+              display: `flex`,
+              flexDirection: `row`,
+              justifyContent: `space-around`,
+              height: "500px",
+            })}
+          >
+            <div
+              css={css({
+                display: `flex`,
+                alignItems: `center`,
+              })}
+            >
+              <Img fixed={data.blog_post.childImageSharp.fixed} />
+            </div>
+            <div
+              css={css({
+                display: `flex`,
+                flexDirection: `column`,
+                alignItems: `center`,
+                justifyContent: `center`,
+              })}
+            >
+              <p sx={{ fontSize: 5 }}>
+                Click to check out the stuff that I write down
+              </p>
+              <AnimatedButton fileDownload={false} url="/blogs">
+                <IconContext.Provider
+                  value={{ style: { marginLeft: "15px" }, size: `2em` }}
+                >
+                  <GiQuillInk />
+                </IconContext.Provider>
+              </AnimatedButton>
+            </div>
+          </div>
+
+          <div
+            sx={{ mt: 6 }}
+            css={css({
+              display: `flex`,
+              flexDirection: `row`,
+              justifyContent: `space-around`,
+              height: "500px",
+            })}
+          >
+            <div
+              css={css({
+                display: `flex`,
+                flexDirection: `column`,
+                justifyContent: `center`,
+                alignItems: `center`,
+              })}
+            >
+              <p sx={{ fontSize: 5 }}>What I have done so far..</p>
+              <AnimatedButton fileDownload={false} url="/projects">
+                <IconContext.Provider
+                  value={{ style: { marginLeft: "15px" }, size: `2em` }}
+                >
+                  <BsArrowReturnRight />
+                </IconContext.Provider>
+              </AnimatedButton>
+            </div>
+
+            <div
+              css={css({
+                display: `flex`,
+                alignItems: `center`,
+              })}
+            >
+              <Img fixed={data.activity.childImageSharp.fixed} />
+            </div>
+          </div>
+
+          <div
+            sx={{ mt: 6 }}
+            css={css({
+              display: `flex`,
+              flexDirection: `row`,
+              justifyContent: `space-around`,
+              height: "500px",
+            })}
+          >
+            <div
+              css={css({
+                display: `flex`,
+                alignItems: `center`,
+              })}
+            >
+              <Img fixed={data.cv.childImageSharp.fixed} />
+            </div>
+            <div
+              css={css({
+                display: `flex`,
+                flexDirection: `column`,
+                justifyContent: `center`,
+                alignItems: `center`,
+              })}
+            >
+              <p sx={{ fontSize: 5 }}>Download my resume</p>
+              <AnimatedButton
+                fileDownload={true}
+                url={data.site.siteMetadata.resumePath}
+              >
+                <IconContext.Provider
+                  value={{ style: { marginLeft: "10px" }, size: `2em` }}
+                >
+                  <ImDownload />
+                </IconContext.Provider>
+              </AnimatedButton>
+            </div>
+          </div>
+        </div>
+      </HomeLayout>
+    </React.Fragment>
+  )
+}
 
 export default IndexPage
 
 export const query = graphql`
   query {
-    profilepic: file(relativePath: { eq: "profilepic.jpg" }) {
+    feeling_proud: file(relativePath: { eq: "feeling_proud.png" }) {
       childImageSharp {
-        fluid(maxWidth: 100, quality: 100) {
-          ...GatsbyImageSharpFluid
+        fixed(height: 600) {
+          ...GatsbyImageSharpFixed
         }
+      }
+    }
+    blog_post: file(relativePath: { eq: "blog_post.png" }) {
+      childImageSharp {
+        fixed(height: 600) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    activity: file(relativePath: { eq: "activity.png" }) {
+      childImageSharp {
+        fixed(height: 500) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    cv: file(relativePath: { eq: "cv.png" }) {
+      childImageSharp {
+        fixed(height: 500) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        name
+        customTitle
+        resumePath
       }
     }
   }
 `
-
-// export const query = graphql`
-//   query {
-//     ukulele: file(relativePath: { eq: "ukulele.png" }) {
-//       childImageSharp {
-//         fluid(maxWidth: 20, quality: 100) {
-//           ...GatsbyImageSharpFluid
-//         }
-//       }
-//     }
-//     dota2: file(relativePath: { eq: "dota2.png" }) {
-//       childImageSharp {
-//         fluid(maxWidth: 20, quality: 100) {
-//           ...GatsbyImageSharpFluid
-//         }
-//       }
-//     }
-//   }
-// `

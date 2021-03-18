@@ -1,6 +1,6 @@
 import React from "react"
 
-import "../components/projects.css"
+import "../styles/projects.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import SEO from "../components/seo"
@@ -19,17 +19,11 @@ const IndexPage = ({ data }) => {
         < ProjectCard key = {node.id} project={node}/> 
     ))
 
-    // console.log("*****************")
-    // console.log(dataNodes)
-    
     var divNodes =  _.chunk(dataNodes, 3).map(node => 
         <Row key={Math.random()}>
             {node}
         </Row>
     )
-
-    // console.log("------------------")
-    // console.log(divNodes)
 
     return(
         <HomeLayout>
