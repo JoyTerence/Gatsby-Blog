@@ -11,17 +11,35 @@ import { useColorMode } from "theme-ui"
 const AnimatedButton = ({ fileDownload, url, children }) => {
   const colorMode = useColorMode()[0]
   return (
-      <AwesomeButton
-        ripple
-        size="medium"
-        type={colorMode === "default" ? "primary" : "secondary"}
-        onPress={() =>
-          fileDownload ? window.open(url, "_target") : navigate(url)
-        }
-      >
-        {children}
-      </AwesomeButton>
+    <AwesomeButton
+      ripple
+      size="medium"
+      type={colorMode === "default" ? "primary" : "secondary"}
+      onPress={() =>
+        fileDownload ? window.open(url, "_target") : navigate(url)
+      }
+    >
+      {children}
+    </AwesomeButton>
+  )
+}
+
+const AnimatedTopicButton = ({ topic, selectedTopic, onTopicClick, index }) => {
+  const colorMode = useColorMode()[0]
+  return (
+    <AwesomeButton
+      className={
+        selectedTopic === topic ? "topic-selected" : "topic-unselected"
+      }
+      ripple
+      size="medium"
+      type={colorMode === "default" ? "primary" : "secondary"}
+      onPress={() => onTopicClick(index)}
+    >
+      {topic}
+    </AwesomeButton>
   )
 }
 
 export default AnimatedButton
+export { AnimatedTopicButton }

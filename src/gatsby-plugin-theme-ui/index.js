@@ -30,7 +30,7 @@ const theme = {
       dark: {
         text: "#fff",
         background: "#1d1d1d",
-        primary: "#0cf",
+        primary: "#a5a9aa",
         cardBgColor: "black",
         cardForeColor: "white",
       },

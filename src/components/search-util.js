@@ -38,6 +38,5 @@ export const fetchByTopic = (data, topic) => {
         }
         return false
     })
-    console.log(data)
     return data
 }

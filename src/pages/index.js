@@ -7,7 +7,6 @@ import HomeLayout from "../components/home-layout"
 import SEO from "../components/seo"
 
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
 import { IconContext } from "react-icons"
 import { GiQuillInk, GiClick } from "react-icons/gi"
 import { ImDownload } from "react-icons/im"
@@ -26,6 +25,8 @@ const IndexPage = ({ data }) => {
         <div
           sx={{
             mt: 6,
+            ml: 2,
+            mr: 2,
             fontWeight: "bold",
             fontSize: 4,
             color: "primary",
@@ -42,44 +43,64 @@ const IndexPage = ({ data }) => {
             <div
               css={css({
                 display: `flex`,
+                flex: 1,
                 flexDirection: `column`,
                 alignItems: `center`,
+                justifyContent: `center`,
               })}
             >
-              <div>
-                <p sx={{ fontSize: 8 }}>Hello there!</p>
-                <p sx={{ fontSize: 5 }}>I'm {data.site.siteMetadata.name}</p>
-                {data.site.siteMetadata.customTitle.map((text, index) => (
-                  <span
-                    key={index}
-                    css={css({
-                      display: `flex`,
-                    })}
-                  >
-                    {text}
-                  </span>
-                ))}
-                <AnimatedButton fileDownload={false} url={"/about-me"}>
-                  <IconContext.Provider
-                    value={{ style: { marginLeft: "10px" }, size: `2em` }}
-                  >
-                    <GiClick />
-                  </IconContext.Provider>
-                </AnimatedButton>
-              </div>
+              <p
+                css={css({
+                  textAlign: `center`,
+                })}
+                sx={{ fontSize: [5, 8] }}
+              >
+                Hello there!
+              </p>
+              <p
+                css={css({
+                  textAlign: `center`,
+                })}
+                sx={{ fontSize: [3, 7] }}
+              >
+                I'm {data.site.siteMetadata.name}
+              </p>
+              {data.site.siteMetadata.customTitle.map((text, index) => (
+                <span
+                  sx={{ fontSize: [3, 5] }}
+                  key={index}
+                  css={css({
+                    display: `flex`,
+                  })}
+                >
+                  {text}
+                </span>
+              ))}
+              <br/> 
+              <AnimatedButton fileDownload={false} url={"/about-me"}>
+                <IconContext.Provider
+                  value={{ style: { marginLeft: "10px" }, size: `2em` }}
+                >
+                  <GiClick />
+                </IconContext.Provider>
+              </AnimatedButton>
             </div>
             <div
               css={css({
                 display: `flex`,
+                flex: 1,
                 alignItems: `center`,
+                justifyContent: `center`,
+                height: "100%",
+                width: "100%",
               })}
             >
-              <Img fixed={data.feeling_proud.childImageSharp.fixed} />
+              <img sx={{ width: "70%" }} src={data.feeling_proud.publicURL} alt="intro"/>
             </div>
           </div>
 
           <div
-            sx={{ mt: 6 }}
+            sx={{ mt: [0, 6] }}
             css={css({
               display: `flex`,
               flexDirection: `row`,
@@ -90,14 +111,18 @@ const IndexPage = ({ data }) => {
             <div
               css={css({
                 display: `flex`,
+                flex: 1,
+                flexDirection: `column`,
                 alignItems: `center`,
+                justifyContent: `center`,
               })}
             >
-              <Img fixed={data.blog_post.childImageSharp.fixed} />
+              <img sx={{ width: "70%" }} src={data.blog_post.publicURL} alt="blog_post"/>
             </div>
             <div
               css={css({
                 display: `flex`,
+                flex: 1,
                 flexDirection: `column`,
                 alignItems: `center`,
                 justifyContent: `center`,
@@ -117,9 +142,10 @@ const IndexPage = ({ data }) => {
           </div>
 
           <div
-            sx={{ mt: 6 }}
+            sx={{ mt: [0, 6] }}
             css={css({
               display: `flex`,
+              flex: 1,
               flexDirection: `row`,
               justifyContent: `space-around`,
               height: "500px",
@@ -128,6 +154,7 @@ const IndexPage = ({ data }) => {
             <div
               css={css({
                 display: `flex`,
+                flex: 1,
                 flexDirection: `column`,
                 justifyContent: `center`,
                 alignItems: `center`,
@@ -146,15 +173,16 @@ const IndexPage = ({ data }) => {
             <div
               css={css({
                 display: `flex`,
+                flex: 1,
                 alignItems: `center`,
               })}
             >
-              <Img fixed={data.activity.childImageSharp.fixed} />
+              <img sx={{ width: "70%" }} src={data.activity.publicURL} alt="projects"/>
             </div>
           </div>
 
           <div
-            sx={{ mt: 6 }}
+            sx={{ mt: [0, 6] }}
             css={css({
               display: `flex`,
               flexDirection: `row`,
@@ -165,14 +193,16 @@ const IndexPage = ({ data }) => {
             <div
               css={css({
                 display: `flex`,
+                flex: 1,
                 alignItems: `center`,
               })}
             >
-              <Img fixed={data.cv.childImageSharp.fixed} />
+              <img sx={{ width: "70%" }} src={data.resume.publicURL} alt="resume"/>
             </div>
             <div
               css={css({
                 display: `flex`,
+                flex: 1,
                 flexDirection: `column`,
                 justifyContent: `center`,
                 alignItems: `center`,
@@ -201,33 +231,17 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    feeling_proud: file(relativePath: { eq: "feeling_proud.png" }) {
-      childImageSharp {
-        fixed(height: 600) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+    feeling_proud: file(relativePath: { eq: "feeling_proud.svg" }) {
+      publicURL
     }
-    blog_post: file(relativePath: { eq: "blog_post.png" }) {
-      childImageSharp {
-        fixed(height: 600) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+    blog_post: file(relativePath: { eq: "blog_post.svg" }) {
+      publicURL
     }
-    activity: file(relativePath: { eq: "activity.png" }) {
-      childImageSharp {
-        fixed(height: 500) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+    activity: file(relativePath: { eq: "activity.svg" }) {
+      publicURL
     }
-    cv: file(relativePath: { eq: "cv.png" }) {
-      childImageSharp {
-        fixed(height: 500) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+    resume: file(relativePath: { eq: "resume.svg" }) {
+      publicURL
     }
     site {
       siteMetadata {

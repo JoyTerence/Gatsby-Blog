@@ -23,3 +23,18 @@
   --button-anchor-color-hover: #f1bfa0;
   --button-anchor-border: 1px solid #8c633c;
 }
+
+.topic-selected {
+  --button-raise-level: 0px;
+  --button-primary-color: #a4bbf3;
+  --button-secondary-color: #545761;
+}
+
+@media only screen and (max-width: 1000px) {
+  .topic-selected {
+    width: 20%;
+  }
+  .topic-unselected {
+    width: 20%;
+  }
+}

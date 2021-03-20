@@ -22,12 +22,14 @@ const AboutMePage = ({ data }) => {
         <div
           sx={{
             color: "primary",
+            mt: 2,
           }}
         >
           <div
             css={css({
               display: `flex`,
-              flexDirection: `row`,
+              mt: [`280px`, 0],
+              flexDirection: [`column`, `row`],
               justifyContent: `space-around`,
               height: "500px",
             })}
@@ -50,18 +52,31 @@ const AboutMePage = ({ data }) => {
                 display: `flex`,
                 alignItems: `center`,
                 justifyContent: `center`,
-                flex: 1.5,
+                flex: 1,
               })}
             >
-              <span>
+              <span
+                css={css({
+                  // display: `flex`,
+                  textAlign: `center`,
+                })}
+              >
                 <Heading sx={{ fontSize: 6 }}>
                   On a quest to know all there is!!
                 </Heading>
                 <br />
                 <Fade left>
-                  <h1>What I love to do</h1>
+                  <h1 sx={{ fontSize: [5, 5] }}>What I love to do</h1>
                 </Fade>
-                <div>
+                <div
+                  css={css({
+                    display: `flex`,
+                    flexDirection: `column`,
+                    justifyContent: `center`,
+                    ml: 1,
+                    mb: [7, 0],
+                  })}
+                >
                   <Fade left cascade>
                     <h4 sx={{ display: `flex`, alignItems: "center" }}>
                       <Img fixed={data.problem.childImageSharp.fixed} />
@@ -98,11 +113,16 @@ const AboutMePage = ({ data }) => {
           <div
             css={css({
               display: `flex`,
+              flex: [0, 1],
               alignItems: `center`,
             })}
           >
             <Fade left>
-              <Img fixed={data.career.childImageSharp.fixed} />
+              <img
+                sx={{ width: "70%" }}
+                src={data.career_progress.publicURL}
+                alt="career"
+              />
             </Fade>
           </div>
           <div
@@ -110,6 +130,7 @@ const AboutMePage = ({ data }) => {
             css={css({
               height: "100%",
               display: `flex`,
+              flex: 1,
               flexDirection: `column`,
               justifyContent: `center`,
               alignItems: `center`,
@@ -161,7 +182,7 @@ const AboutMePage = ({ data }) => {
                 flexDirection: `column`,
                 justifyContent: `center`,
                 alignItems: `center`,
-                textAlign: "left"
+                textAlign: "left",
               })}
             >
               <Fade right>
@@ -219,12 +240,8 @@ export const query = graphql`
         }
       }
     }
-    career: file(relativePath: { eq: "career.png" }) {
-      childImageSharp {
-        fixed(height: 500) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+    career_progress: file(relativePath: { eq: "career_progress.svg" }) {
+      publicURL
     }
   }
 `

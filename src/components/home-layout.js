@@ -11,35 +11,30 @@ import theme from "../gatsby-plugin-theme-ui"
 
 import Header from "./header"
 
-const HomeLayout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteNameQuery {
-        site {
-          siteMetadata {
-            name
+const HomeLayout = ({ children }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteNameQuery {
+          site {
+            siteMetadata {
+              name
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <ThemeProvider theme={theme}>
-        <React.Fragment>
-          <Header siteTitle={data.site.siteMetadata.name} />
-          <div
-            sx={{
-              margin: 5,
-              fontSize: 4,
-            }}
-          >
-            {children}
-          </div>
-          <footer />
-        </React.Fragment>
-      </ThemeProvider>
-    )}
-  />
-)
+      `}
+      render={data => (
+        <ThemeProvider theme={theme}>
+          <React.Fragment>
+            <Header siteTitle={data.site.siteMetadata.name} />
+            <div sx={{}}>{children}</div>
+            <footer />
+          </React.Fragment>
+        </ThemeProvider>
+      )}
+    />
+  )
+}
 
 HomeLayout.propTypes = {
   children: PropTypes.node.isRequired,

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, useColorMode, css, Styled } from "theme-ui"
+import { jsx, useColorMode, css } from "theme-ui"
 
 import PropTypes from "prop-types"
 import React from "react"
@@ -11,19 +11,23 @@ import DarkModeToggle from "react-dark-mode-toggle"
 const Header = ({ siteTitle }) => {
   const [colorMode, setColorMode] = useColorMode()
 
+  const headerColor = colorMode === "dark" ? "black" : "lavenderblush"
+  const shadowColor = colorMode === "dark" ? "" : "5px 6px 6px #888888"
+
   return (
     <React.Fragment>
       <nav>
-        <Styled
-          css={css({
+        <div
+          style={{
             position: `fixed`,
             width: `100%`,
             top: 0,
             left: 0,
             zIndex: "1000",
             height: `60px`,
-            backgroundColor: `background`,
-          })}
+            backgroundColor: headerColor,
+            boxShadow: shadowColor,
+          }}
         >
           <div
             css={css({
@@ -50,9 +54,16 @@ const Header = ({ siteTitle }) => {
               >
                 <span
                   role="button"
-                  sx={{ ml: 2, justifyContent: "center", cursor: "pointer" }}
+                  tabIndex={0}
+                  sx={{
+                    ml: 2,
+                    color: "primary",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    outline: "none",
+                  }}
                   onClick={() => navigate("/")}
-                  onkeydown={() => navigate("/")}
+                  onKeyDown={() => navigate("/")}
                 >
                   {" "}
                   {siteTitle}{" "}
@@ -67,7 +78,7 @@ const Header = ({ siteTitle }) => {
               />
             </div>
           </div>
-        </Styled>
+        </div>
       </nav>
     </React.Fragment>
   )
