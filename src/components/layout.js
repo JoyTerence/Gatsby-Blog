@@ -10,12 +10,12 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql, Link } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+// import "./layout.css"
 
-import { IconContext } from "react-icons";
-import { GiSpy, GiBookshelf } from "react-icons/gi";
-import { MdContactMail } from "react-icons/md";
-import { GoRepo, GoCloudDownload } from "react-icons/go";
+import { IconContext } from "react-icons"
+import { GiSpy, GiBookshelf } from "react-icons/gi"
+import { MdContactMail } from "react-icons/md"
+import { GoRepo, GoCloudDownload } from "react-icons/go"
 
 export const Layout = ({ children }) => (
   <StaticQuery
@@ -30,6 +30,7 @@ export const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+        <div>Hello</div>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
@@ -42,31 +43,41 @@ export const Layout = ({ children }) => (
         >
           <main>{children}</main>
         </div>
-        <footer style={{display: "flex", justifyContent: "space-between", margin:`0 auto`, maxWidth: 960, padding: `1em`}}>
+        <footer
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            margin: `0 auto`,
+            maxWidth: 960,
+            padding: `1em`,
+          }}
+        >
           <Link to="/" target="_blank">
-            <IconContext.Provider value={{color:`black`, size: `2em`}}>
-              < GiSpy /> 
+            <IconContext.Provider value={{ color: `black`, size: `2em` }}>
+              <GiSpy />
             </IconContext.Provider>
           </Link>
           <Link to="/projects">
-            <IconContext.Provider value={{color: `royalblue`, size: `2em`}}>
-              < GoRepo />
+            <IconContext.Provider value={{ color: `royalblue`, size: `2em` }}>
+              <GoRepo />
             </IconContext.Provider>
           </Link>
           <Link to="/blogs">
-            <IconContext.Provider value={{color: `darkgoldenrod`, size: `2em`}}>
-              < GiBookshelf />
+            <IconContext.Provider
+              value={{ color: `darkgoldenrod`, size: `2em` }}
+            >
+              <GiBookshelf />
             </IconContext.Provider>
           </Link>
           <Link to="/contact-me">
-            <IconContext.Provider value={{ color:`#e03434`, size: `2em`}}>
-              < MdContactMail />
+            <IconContext.Provider value={{ color: `#e03434`, size: `2em` }}>
+              <MdContactMail />
             </IconContext.Provider>
           </Link>
           <a href="./joyterencebarnes.pdf" download>
-            <IconContext.Provider value={{ color:`green`, size: `2em`}}>
-                < GoCloudDownload />
-              </IconContext.Provider>
+            <IconContext.Provider value={{ color: `green`, size: `2em` }}>
+              <GoCloudDownload />
+            </IconContext.Provider>
           </a>
         </footer>
       </>
@@ -77,5 +88,3 @@ export const Layout = ({ children }) => (
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
-

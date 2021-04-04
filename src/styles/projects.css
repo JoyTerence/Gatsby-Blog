@@ -30,10 +30,6 @@
     box-shadow: 5px 10px 10px #888888;
 }
 
-.projectCard:hover {
-    box-shadow: 0.5em 0.5em;
-    box-shadow: 5px 10px 30px #888888;
-}
 
 .projectLink {
     flex: 1;

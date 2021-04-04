@@ -1,44 +1,88 @@
-import { Link } from "gatsby"
+/** @jsx jsx */
+import { jsx, useColorMode, css } from "theme-ui"
+
 import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      marginBottom: `1.45rem`,
-      height: 250
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        paddingTop: `10.45rem`,
-        paddingBottom: `0.5rem`
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
+import { navigate } from "gatsby"
+
+import DarkModeToggle from "react-dark-mode-toggle"
+
+const Header = ({ siteTitle }) => {
+  const [colorMode, setColorMode] = useColorMode()
+
+  const headerColor = colorMode === "dark" ? "black" : "lavenderblush"
+  const shadowColor = colorMode === "dark" ? "" : "5px 6px 6px #888888"
+
+  return (
+    <React.Fragment>
+      <nav>
+        <div
           style={{
-            color: `black`,
-            textDecoration: `none`,
+            position: `fixed`,
+            width: `100%`,
+            top: 0,
+            left: 0,
+            zIndex: "1000",
+            height: `60px`,
+            backgroundColor: headerColor,
+            boxShadow: shadowColor,
           }}
         >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-    <hr
-      style={{
-        maxWidth: 1000,
-        margin: `0 auto`,
-        height: 2,
-        backgroundColor: `black`
-      }}
-    />
-  </header>
-)
+          <div
+            css={css({
+              maxWidth: `container`,
+              mx: `auto`,
+              mt: 2,
+              mr: 4,
+              ml: 4,
+            })}
+          >
+            <div
+              css={css({
+                display: `flex`,
+                justifyContent: `space-between`,
+              })}
+            >
+              <div
+                sx={{
+                  display: "flex",
+                  fontWeight: "bold",
+                  fontSize: 5,
+                  justifyContent: "flex-start",
+                }}
+              >
+                <span
+                  role="button"
+                  tabIndex={0}
+                  sx={{
+                    ml: 2,
+                    color: "primary",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    outline: "none",
+                  }}
+                  onClick={() => navigate("/")}
+                  onKeyDown={() => navigate("/")}
+                >
+                  {" "}
+                  {siteTitle}{" "}
+                </span>
+              </div>
+              <DarkModeToggle
+                onChange={() => {
+                  setColorMode(colorMode === "default" ? "dark" : "default")
+                }}
+                checked={colorMode === "dark"}
+                size={60}
+              />
+            </div>
+          </div>
+        </div>
+      </nav>
+    </React.Fragment>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

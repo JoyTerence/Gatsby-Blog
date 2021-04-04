@@ -14,7 +14,6 @@
     flex-direction: row;
     background-color: white;
     width: 100%;
-    box-shadow: 5px 10px 10px #888888;
     border-radius: 5px;
 }
 
@@ -184,19 +183,6 @@ input:focus {
     cursor:pointer;
 }
 
-.topic-selected {
-    display: flex;
-    width: fit-content;
-    margin: 0.2em;
-    padding: 0.3em;
-    font-weight: bold;
-    background-color: deepskyblue;
-    box-shadow: 5px 10px 10px #888888;
-    border-radius: 10px;
-    outline: 0;
-    outline: none;
-    cursor:pointer;
-}
 
 .no-post-disclaimer {
     display: flex;
