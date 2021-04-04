@@ -37,7 +37,7 @@ const IndexPage = ({ data }) => {
           <div
             css={css({
               display: `flex`,
-              flexDirection: `row`,
+              flexDirection: [`column-reverse`, `row`],
               justifyContent: `space-around`,
               height: ["300px", "400px"],
             })}
@@ -108,10 +108,10 @@ const IndexPage = ({ data }) => {
           </div>
 
           <div
-            sx={{ mt: [0, 6] }}
+            sx={{ mt: [6, 6] }}
             css={css({
               display: `flex`,
-              flexDirection: `row`,
+              flexDirection: [`column`, `row`],
               justifyContent: `space-around`,
               height: ["300px", "400px"],
             })}
@@ -156,11 +156,11 @@ const IndexPage = ({ data }) => {
           </div>
 
           <div
-            sx={{ mt: [0, 6] }}
+            sx={{ mt: [4, 4] }}
             css={css({
               display: `flex`,
               flex: 1,
-              flexDirection: `row`,
+              flexDirection: [`column-reverse`, `row`],
               justifyContent: `space-around`,
               height: ["300px", "400px"],
             })}
@@ -204,10 +204,10 @@ const IndexPage = ({ data }) => {
           </div>
 
           <div
-            sx={{ mt: [0, 6] }}
+            sx={{ mt: [4, 4] }}
             css={css({
               display: `flex`,
-              flexDirection: `row`,
+              flexDirection: [`column`, `row`],
               justifyContent: `space-around`,
               height: ["300px", "400px"],
             })}
