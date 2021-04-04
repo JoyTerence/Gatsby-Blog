@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    name:  `Joy Barnes`,
+    name: `Joy Barnes`,
     customTitle: ["Software Engineer", "Avaya Bengaluru"],
     description: `A Personal Portfolio`,
     resumePath: `./joyterencebarnes.pdf`,
@@ -9,6 +9,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Joy Barnes`,
+        icon: `src/images/favicon.png`
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -42,7 +49,7 @@ module.exports = {
             resolve: `gatsby-remark-katex`,
             options: {
               // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
-              strict: `ignore`
+              strict: `ignore`,
             },
           },
           {
@@ -52,7 +59,7 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
-          'gatsby-remark-copy-linked-files',
+          "gatsby-remark-copy-linked-files",
           {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -97,7 +104,7 @@ module.exports = {
               // existing language definition. More details on this option can be
               // found under the header "Add new language definition or extend an
               // existing language" below.
-            }
+            },
           },
         ],
       },
@@ -110,7 +117,7 @@ module.exports = {
       options: {
         path: `${__dirname}/content`,
         name: "pages",
-      }
+      },
     },
     `gatsby-transformer-json`,
     {
