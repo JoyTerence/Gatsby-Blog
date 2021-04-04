@@ -104,7 +104,7 @@ const BlogPage = ({ data }) => {
                 top: "9px",
                 right: "10%",
                 zIndex: 99999,
-                display: ["none", "flex"],
+                display: ["contents", "flex"],
                 fontSize: 2,
                 borderBottom: "1px solid",
               })}
@@ -139,6 +139,7 @@ const BlogPage = ({ data }) => {
           >
             {tags.map((tag, index) => (
               <Tag
+                key={index}
                 tag={tag}
                 index={index}
                 onSearchTagClick={onSearchTagClick}
