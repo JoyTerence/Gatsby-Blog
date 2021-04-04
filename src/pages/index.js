@@ -64,7 +64,7 @@ const IndexPage = ({ data }) => {
                   css={css({
                     textAlign: `center`,
                   })}
-                  sx={{ fontSize: [3, 4] }}
+                  sx={{ fontSize: [3, 5] }}
                 >
                   I'm {data.site.siteMetadata.name}
                 </p>
