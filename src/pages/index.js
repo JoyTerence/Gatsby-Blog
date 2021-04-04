@@ -12,6 +12,8 @@ import { GiQuillInk, GiClick } from "react-icons/gi"
 import { ImDownload } from "react-icons/im"
 import { BsArrowReturnRight } from "react-icons/bs"
 
+import Fade from "react-reveal/Fade"
+
 import AnimatedButton from "../components/awesomebutton"
 
 const IndexPage = ({ data }) => {
@@ -49,41 +51,43 @@ const IndexPage = ({ data }) => {
                 justifyContent: `center`,
               })}
             >
-              <p
-                css={css({
-                  textAlign: `center`,
-                })}
-                sx={{ fontSize: [5, 7] }}
-              >
-                Hello there!
-              </p>
-              <p
-                css={css({
-                  textAlign: `center`,
-                })}
-                sx={{ fontSize: [3, 6] }}
-              >
-                I'm {data.site.siteMetadata.name}
-              </p>
-              {data.site.siteMetadata.customTitle.map((text, index) => (
-                <span
-                  sx={{ fontSize: [2, 3] }}
-                  key={index}
+              <Fade left>
+                <p
                   css={css({
-                    display: `flex`,
+                    textAlign: `center`,
                   })}
+                  sx={{ fontSize: [5, 7] }}
                 >
-                  {text}
-                </span>
-              ))}
-              <br/> 
-              <AnimatedButton fileDownload={false} url={"/about-me"}>
-                <IconContext.Provider
-                  value={{ style: { marginLeft: "10px" }, size: `2em` }}
+                  Hello there!
+                </p>
+                <p
+                  css={css({
+                    textAlign: `center`,
+                  })}
+                  sx={{ fontSize: [3, 4] }}
                 >
-                  <GiClick />
-                </IconContext.Provider>
-              </AnimatedButton>
+                  I'm {data.site.siteMetadata.name}
+                </p>
+                {data.site.siteMetadata.customTitle.map((text, index) => (
+                  <span
+                    sx={{ fontSize: [2, 3] }}
+                    key={index}
+                    css={css({
+                      display: `flex`,
+                    })}
+                  >
+                    {text}
+                  </span>
+                ))}
+                <br />
+                <AnimatedButton fileDownload={false} url={"/about-me"}>
+                  <IconContext.Provider
+                    value={{ style: { marginLeft: "10px" }, size: `2em` }}
+                  >
+                    <GiClick />
+                  </IconContext.Provider>
+                </AnimatedButton>
+              </Fade>
             </div>
             <div
               css={css({
@@ -93,7 +97,13 @@ const IndexPage = ({ data }) => {
                 justifyContent: `center`,
               })}
             >
-              <img sx={{ width: "70%" }} src={data.feeling_proud.publicURL} alt="intro"/>
+              <Fade right>
+                <img
+                  sx={{ width: "70%" }}
+                  src={data.feeling_proud.publicURL}
+                  alt="intro"
+                />
+              </Fade>
             </div>
           </div>
 
@@ -115,7 +125,13 @@ const IndexPage = ({ data }) => {
                 justifyContent: `center`,
               })}
             >
-              <img sx={{ width: "70%" }} src={data.blog_post.publicURL} alt="blog_post"/>
+              <Fade left>
+                <img
+                  sx={{ width: "70%" }}
+                  src={data.blog_post.publicURL}
+                  alt="blog_post"
+                />
+              </Fade>
             </div>
             <div
               css={css({
@@ -126,16 +142,16 @@ const IndexPage = ({ data }) => {
                 justifyContent: `center`,
               })}
             >
-              <p sx={{ fontSize: 5 }}>
-                Click to check out the stuff that I write down
-              </p>
-              <AnimatedButton fileDownload={false} url="/blogs">
-                <IconContext.Provider
-                  value={{ style: { marginLeft: "15px" }, size: `2em` }}
-                >
-                  <GiQuillInk />
-                </IconContext.Provider>
-              </AnimatedButton>
+              <Fade right>
+                <p sx={{ fontSize: [3, 4] }}>Stuff I've written so far...</p>
+                <AnimatedButton fileDownload={false} url="/blogs">
+                  <IconContext.Provider
+                    value={{ style: { marginLeft: "15px" }, size: `2em` }}
+                  >
+                    <GiQuillInk />
+                  </IconContext.Provider>
+                </AnimatedButton>
+              </Fade>
             </div>
           </div>
 
@@ -158,14 +174,16 @@ const IndexPage = ({ data }) => {
                 alignItems: `center`,
               })}
             >
-              <p sx={{ fontSize: 5 }}>What I have done so far..</p>
-              <AnimatedButton fileDownload={false} url="/projects">
-                <IconContext.Provider
-                  value={{ style: { marginLeft: "15px" }, size: `2em` }}
-                >
-                  <BsArrowReturnRight />
-                </IconContext.Provider>
-              </AnimatedButton>
+              <Fade left>
+                <p sx={{ fontSize: [3, 4] }}>Some of my works...</p>
+                <AnimatedButton fileDownload={false} url="/projects">
+                  <IconContext.Provider
+                    value={{ style: { marginLeft: "15px" }, size: `2em` }}
+                  >
+                    <BsArrowReturnRight />
+                  </IconContext.Provider>
+                </AnimatedButton>
+              </Fade>
             </div>
 
             <div
@@ -175,7 +193,13 @@ const IndexPage = ({ data }) => {
                 alignItems: `center`,
               })}
             >
-              <img sx={{ width: "70%" }} src={data.activity.publicURL} alt="projects"/>
+              <Fade right>
+                <img
+                  sx={{ width: "70%" }}
+                  src={data.activity.publicURL}
+                  alt="projects"
+                />
+              </Fade>
             </div>
           </div>
 
@@ -195,7 +219,13 @@ const IndexPage = ({ data }) => {
                 alignItems: `center`,
               })}
             >
-              <img sx={{ width: "70%" }} src={data.resume.publicURL} alt="resume"/>
+              <Fade left>
+                <img
+                  sx={{ width: "70%" }}
+                  src={data.resume.publicURL}
+                  alt="resume"
+                />
+              </Fade>
             </div>
             <div
               css={css({
@@ -206,17 +236,19 @@ const IndexPage = ({ data }) => {
                 alignItems: `center`,
               })}
             >
-              <p sx={{ fontSize: 5 }}>Download my resume</p>
-              <AnimatedButton
-                fileDownload={true}
-                url={data.site.siteMetadata.resumePath}
-              >
-                <IconContext.Provider
-                  value={{ style: { marginLeft: "10px" }, size: `2em` }}
+              <Fade right>
+                <p sx={{ fontSize: [3, 4] }}>Download my resume</p>
+                <AnimatedButton
+                  fileDownload={true}
+                  url={data.site.siteMetadata.resumePath}
                 >
-                  <ImDownload />
-                </IconContext.Provider>
-              </AnimatedButton>
+                  <IconContext.Provider
+                    value={{ style: { marginLeft: "10px" }, size: `2em` }}
+                  >
+                    <ImDownload />
+                  </IconContext.Provider>
+                </AnimatedButton>
+              </Fade>
             </div>
           </div>
         </div>
