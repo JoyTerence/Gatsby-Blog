@@ -67,7 +67,7 @@ const IndexPage = ({ data }) => {
               </p>
               {data.site.siteMetadata.customTitle.map((text, index) => (
                 <span
-                  sx={{ fontSize: [3, 5] }}
+                  sx={{ fontSize: [2, 3] }}
                   key={index}
                   css={css({
                     display: `flex`,

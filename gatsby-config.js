@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     name: `Joy Barnes`,
-    customTitle: ["Software Engineer", "Avaya Bengaluru"],
+    customTitle: ["Software Engineer", "@Avaya"],
     description: `A Personal Portfolio`,
     resumePath: `./joyterencebarnes.pdf`,
     author: `Joy Barnes`,
