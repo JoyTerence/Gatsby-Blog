@@ -73,7 +73,7 @@ const AboutMePage = ({ data }) => {
                     display: `flex`,
                     flexDirection: `column`,
                     justifyContent: `center`,
-                    ml: 1,
+                    ml: [1, 1, 6],
                     mb: [7, 0],
                   })}
                 >

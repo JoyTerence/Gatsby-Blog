@@ -37,7 +37,7 @@ const IndexPage = ({ data }) => {
               display: `flex`,
               flexDirection: `row`,
               justifyContent: `space-around`,
-              height: "500px",
+              height: ["300px", "400px"],
             })}
           >
             <div
@@ -53,7 +53,7 @@ const IndexPage = ({ data }) => {
                 css={css({
                   textAlign: `center`,
                 })}
-                sx={{ fontSize: [5, 8] }}
+                sx={{ fontSize: [5, 7] }}
               >
                 Hello there!
               </p>
@@ -61,7 +61,7 @@ const IndexPage = ({ data }) => {
                 css={css({
                   textAlign: `center`,
                 })}
-                sx={{ fontSize: [3, 7] }}
+                sx={{ fontSize: [3, 6] }}
               >
                 I'm {data.site.siteMetadata.name}
               </p>
@@ -91,8 +91,6 @@ const IndexPage = ({ data }) => {
                 flex: 1,
                 alignItems: `center`,
                 justifyContent: `center`,
-                height: "100%",
-                width: "100%",
               })}
             >
               <img sx={{ width: "70%" }} src={data.feeling_proud.publicURL} alt="intro"/>
@@ -105,7 +103,7 @@ const IndexPage = ({ data }) => {
               display: `flex`,
               flexDirection: `row`,
               justifyContent: `space-around`,
-              height: "500px",
+              height: ["300px", "400px"],
             })}
           >
             <div
@@ -148,7 +146,7 @@ const IndexPage = ({ data }) => {
               flex: 1,
               flexDirection: `row`,
               justifyContent: `space-around`,
-              height: "500px",
+              height: ["300px", "400px"],
             })}
           >
             <div
@@ -187,7 +185,7 @@ const IndexPage = ({ data }) => {
               display: `flex`,
               flexDirection: `row`,
               justifyContent: `space-around`,
-              height: "500px",
+              height: ["300px", "400px"],
             })}
           >
             <div

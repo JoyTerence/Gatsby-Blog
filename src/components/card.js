@@ -25,8 +25,6 @@ const ProjectCard = ({ node }) => {
     setHover(false)
   }
 
-  console.log(theme)
-
   const bottomBorderColor =
     colorMode === "dark"
       ? theme.colors.modes.dark.primary

@@ -29,7 +29,6 @@ const ICONS = {
 };
 
 function getIcon({ type, width = 23, height = 30, margin, color = "rgba(255,255,255,0.35)"}) {
-  console.log(ICONS[type])
   return (
     <svg
       version="1.1"
