@@ -52,22 +52,22 @@ const IndexPage = ({ data }) => {
               })}
             >
               <Fade left>
-                <p
+                <span
                   css={css({
                     textAlign: `center`,
                   })}
-                  sx={{ fontSize: [5, 7] }}
+                  sx={{ fontSize: ["30px", 7] }}
                 >
                   Hello there!
-                </p>
-                <p
+                </span>
+                <span
                   css={css({
                     textAlign: `center`,
                   })}
                   sx={{ fontSize: [3, 5] }}
                 >
                   I'm {data.site.siteMetadata.name}
-                </p>
+                </span>
                 {data.site.siteMetadata.customTitle.map((text, index) => (
                   <span
                     sx={{ fontSize: [2, 3] }}
@@ -79,7 +79,7 @@ const IndexPage = ({ data }) => {
                     {text}
                   </span>
                 ))}
-                <br />
+                <div sx={{ p: 2 }} />
                 <AnimatedButton fileDownload={false} url={"/about-me"}>
                   <IconContext.Provider
                     value={{ style: { marginLeft: "10px" }, size: `2em` }}
