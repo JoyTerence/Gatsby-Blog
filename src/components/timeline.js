@@ -98,7 +98,7 @@ const Timeline = () => {
             <p>Avaya IX Workplace,</p>
             <p style={{ margin: 0, padding: 0 }}>Avaya WebRTC,</p>
             <p style={{ margin: 0, padding: 0 }}>
-              Avaya Vantage (k155, k165, k175)
+              Avaya CSDK
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement

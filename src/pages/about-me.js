@@ -22,7 +22,6 @@ const AboutMePage = ({ data }) => {
         <div
           sx={{
             color: "primary",
-            mt: 2,
           }}
         >
           <div
@@ -31,7 +30,7 @@ const AboutMePage = ({ data }) => {
               mt: [`280px`, 0],
               flexDirection: [`column`, `row`],
               justifyContent: `space-around`,
-              height: "500px",
+              height: ["250px", "500px"],
             })}
           >
             <div
@@ -43,8 +42,13 @@ const AboutMePage = ({ data }) => {
                 flex: 1,
               })}
             >
-              <div>
+              <div sx={{ mt: [6, 0] }}>
                 <Avatar />
+              </div>
+              <div>
+                <Heading sx={{ fontSize: [4, 5] }}>
+                  On a quest to know all there is!!
+                </Heading>
               </div>
             </div>
             <div
@@ -57,42 +61,45 @@ const AboutMePage = ({ data }) => {
             >
               <span
                 css={css({
-                  // display: `flex`,
                   textAlign: `center`,
                 })}
               >
-                <Heading sx={{ fontSize: 6 }}>
-                  On a quest to know all there is!!
-                </Heading>
                 <br />
                 <Fade left>
-                  <h1 sx={{ fontSize: [5, 5] }}>What I love to do</h1>
+                  <h1 sx={{ fontSize: [4, 5] }}>What I love to do?</h1>
                 </Fade>
                 <div
                   css={css({
                     display: `flex`,
                     flexDirection: `column`,
-                    justifyContent: `center`,
-                    ml: [1, 1, 6],
+                    ml: [1, 1, 0],
                     mb: [7, 0],
                   })}
                 >
                   <Fade left cascade>
                     <h4 sx={{ display: `flex`, alignItems: "center" }}>
                       <Img fixed={data.problem.childImageSharp.fixed} />
-                      <span sx={{ ml: 4 }}>Solve random problems</span>
+                      <span sx={{ ml: 4, fontSize: [3, 5] }}>
+                        Solve random problems
+                      </span>
                     </h4>
                     <h4 sx={{ display: `flex`, alignItems: "center" }}>
                       <Img fixed={data.coding.childImageSharp.fixed} />
-                      <span sx={{ ml: 4 }}> Programming </span>
+                      <span sx={{ ml: 4, fontSize: [3, 5] }}>
+                        {" "}
+                        Programming{" "}
+                      </span>
                     </h4>
                     <h4 sx={{ display: `flex`, alignItems: "center" }}>
                       <Img fixed={data.dota.childImageSharp.fixed} />
-                      <span sx={{ ml: 2 }}> Dota </span>
+                      <span sx={{ ml: "10px", fontSize: [3, 5] }}> Dota </span>
                     </h4>
                     <h4 sx={{ display: `flex`, alignItems: "center" }}>
                       <Img fixed={data.uke.childImageSharp.fixed} />
-                      <span sx={{ ml: 3 }}> play the uke </span>
+                      <span sx={{ ml: 3, fontSize: [3, 5] }}>
+                        {" "}
+                        Play occasional uke{" "}
+                      </span>
                     </h4>
                   </Fade>
                 </div>
@@ -101,10 +108,10 @@ const AboutMePage = ({ data }) => {
           </div>
         </div>
         <div
-          sx={{ mt: 4 }}
+          sx={{ mt: [6, 4] }}
           css={css({
             display: `flex`,
-            flexDirection: `row`,
+            flexDirection: [`column`, `row`],
             justifyContent: `space-between`,
             alignItems: `center`,
             height: "500px",
@@ -113,7 +120,7 @@ const AboutMePage = ({ data }) => {
           <div
             css={css({
               display: `flex`,
-              flex: [0, 1],
+              flex: 1,
               alignItems: `center`,
             })}
           >
@@ -140,7 +147,7 @@ const AboutMePage = ({ data }) => {
           </div>
         </div>
         <div
-          sx={{ mt: 4 }}
+          sx={{ mt: [6, 4] }}
           css={css({
             display: `flex`,
             flexDirection: `row`,
@@ -149,7 +156,6 @@ const AboutMePage = ({ data }) => {
             height: "500px",
           })}
         >
-          {" "}
           <div
             sx={{ mt: 4 }}
             css={css({
@@ -175,7 +181,7 @@ const AboutMePage = ({ data }) => {
               </Fade>
             </div>
             <div
-              sx={{ mr: 6, color: "primary" }}
+              sx={{ color: "primary" }}
               css={css({
                 height: "100%",
                 display: `flex`,
@@ -186,9 +192,13 @@ const AboutMePage = ({ data }) => {
               })}
             >
               <Fade right>
-                <Heading sx={{ fontSize: 6 }}>Contact me here</Heading>
+                <Heading
+                  sx={{ fontSize: [4, 5] }}
+                >
+                  Contact me here
+                </Heading>
                 <br />
-                <h4>
+                <h4 sx={{ fontSize: [2, 4], padding: [0, 5] }} css={css({ textAlign: `center` })}>
                   I'll gladly get in touch for any discussions, projects or
                   random subjects :)
                 </h4>

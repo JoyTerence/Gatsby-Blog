@@ -69,13 +69,21 @@ const Header = ({ siteTitle }) => {
                   {siteTitle}{" "}
                 </span>
               </div>
-              <DarkModeToggle
-                onChange={() => {
-                  setColorMode(colorMode === "default" ? "dark" : "default")
+              <div
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
-                checked={colorMode === "dark"}
-                size={60}
-              />
+              >
+                <DarkModeToggle
+                  onChange={() => {
+                    setColorMode(colorMode === "default" ? "dark" : "default")
+                  }}
+                  checked={colorMode === "dark"}
+                  size={60}
+                />
+              </div>
             </div>
           </div>
         </div>

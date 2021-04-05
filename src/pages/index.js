@@ -26,12 +26,13 @@ const IndexPage = ({ data }) => {
         />
         <div
           sx={{
-            mt: 6,
+            mt: ["100px", 6],
             ml: 2,
             mr: 2,
             fontWeight: "bold",
             fontSize: 4,
             color: "primary",
+            overflowX: 'hidden',
           }}
         >
           <div
@@ -39,7 +40,7 @@ const IndexPage = ({ data }) => {
               display: `flex`,
               flexDirection: [`column-reverse`, `row`],
               justifyContent: `space-around`,
-              height: ["300px", "400px"],
+              height: ["450px", "400px"],
             })}
           >
             <div
@@ -51,43 +52,41 @@ const IndexPage = ({ data }) => {
                 justifyContent: `center`,
               })}
             >
-              <Fade left>
+              <span
+                css={css({
+                  textAlign: `center`,
+                })}
+                sx={{ fontSize: ["30px", 7] }}
+              >
+                Hello there!
+              </span>
+              <span
+                css={css({
+                  textAlign: `center`,
+                })}
+                sx={{ fontSize: [3, 5] }}
+              >
+                I'm {data.site.siteMetadata.name}
+              </span>
+              {data.site.siteMetadata.customTitle.map((text, index) => (
                 <span
+                  sx={{ fontSize: [2, 3] }}
+                  key={index}
                   css={css({
-                    textAlign: `center`,
+                    display: `flex`,
                   })}
-                  sx={{ fontSize: ["30px", 7] }}
                 >
-                  Hello there!
+                  {text}
                 </span>
-                <span
-                  css={css({
-                    textAlign: `center`,
-                  })}
-                  sx={{ fontSize: [3, 5] }}
+              ))}
+              <div sx={{ p: 2 }} />
+              <AnimatedButton fileDownload={false} url={"/about-me"}>
+                <IconContext.Provider
+                  value={{ style: { marginLeft: "10px" }, size: `2em` }}
                 >
-                  I'm {data.site.siteMetadata.name}
-                </span>
-                {data.site.siteMetadata.customTitle.map((text, index) => (
-                  <span
-                    sx={{ fontSize: [2, 3] }}
-                    key={index}
-                    css={css({
-                      display: `flex`,
-                    })}
-                  >
-                    {text}
-                  </span>
-                ))}
-                <div sx={{ p: 2 }} />
-                <AnimatedButton fileDownload={false} url={"/about-me"}>
-                  <IconContext.Provider
-                    value={{ style: { marginLeft: "10px" }, size: `2em` }}
-                  >
-                    <GiClick />
-                  </IconContext.Provider>
-                </AnimatedButton>
-              </Fade>
+                  <GiClick />
+                </IconContext.Provider>
+              </AnimatedButton>
             </div>
             <div
               css={css({
@@ -97,23 +96,21 @@ const IndexPage = ({ data }) => {
                 justifyContent: `center`,
               })}
             >
-              <Fade right>
-                <img
-                  sx={{ width: "70%" }}
-                  src={data.feeling_proud.publicURL}
-                  alt="intro"
-                />
-              </Fade>
+              <img
+                sx={{ width: "70%" }}
+                src={data.feeling_proud.publicURL}
+                alt="intro"
+              />
             </div>
           </div>
 
           <div
-            sx={{ mt: [6, 6] }}
+            sx={{ mt: [5, 6] }}
             css={css({
               display: `flex`,
               flexDirection: [`column`, `row`],
               justifyContent: `space-around`,
-              height: ["300px", "400px"],
+              height: ["450px", "400px"],
             })}
           >
             <div
@@ -162,7 +159,7 @@ const IndexPage = ({ data }) => {
               flex: 1,
               flexDirection: [`column-reverse`, `row`],
               justifyContent: `space-around`,
-              height: ["300px", "400px"],
+              height: ["450px", "400px"],
             })}
           >
             <div
@@ -196,7 +193,7 @@ const IndexPage = ({ data }) => {
               <Fade right>
                 <img
                   sx={{ width: "70%" }}
-                  src={data.activity.publicURL}
+                  src={data.coding.publicURL}
                   alt="projects"
                 />
               </Fade>
@@ -209,7 +206,7 @@ const IndexPage = ({ data }) => {
               display: `flex`,
               flexDirection: [`column`, `row`],
               justifyContent: `space-around`,
-              height: ["300px", "400px"],
+              height: ["450px", "400px"],
             })}
           >
             <div
@@ -267,7 +264,7 @@ export const query = graphql`
     blog_post: file(relativePath: { eq: "blog_post.svg" }) {
       publicURL
     }
-    activity: file(relativePath: { eq: "activity.svg" }) {
+    coding: file(relativePath: { eq: "coding.svg" }) {
       publicURL
     }
     resume: file(relativePath: { eq: "resume.svg" }) {
