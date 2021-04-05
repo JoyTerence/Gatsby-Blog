@@ -157,7 +157,7 @@ const AboutMePage = ({ data }) => {
           })}
         >
           <div
-            sx={{ mt: 4 }}
+            sx={{ mt: 5 }}
             css={css({
               display: `flex`,
               flexDirection: `row`,
