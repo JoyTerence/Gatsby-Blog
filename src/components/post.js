@@ -9,9 +9,8 @@ const Post = ({ post }) => {
     <React.Fragment>
       <div
         sx={{
-          m: 5,
-          ml: "auto",
-          mr: "auto",
+          m: "80px auto 10px auto",
+          borderRadius: "5px",
           color: `primary`,
           backgroundColor: `background`,
           maxWidth: `90%`,
@@ -19,7 +18,7 @@ const Post = ({ post }) => {
         }}
         css={css({
           boxShadow:
-            colorMode === "dark" ? "2px 2px 8px black" : "2px 2px 8px lavender",
+            colorMode === "dark" ? "2px 2px 8px black" : "2px 2px 8px lightgray",
         })}
         className="blog-post-container"
       >

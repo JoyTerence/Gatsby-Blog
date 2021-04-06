@@ -19,7 +19,7 @@ const NoPost = ({ description }) => {
         }}
         css={css({
           boxShadow:
-            colorMode === "dark" ? "2px 2px 8px black" : "2px 2px 8px lavender",
+            colorMode === "dark" ? "2px 2px 8px black" : "2px 2px 8px lightgrey",
         })}
         className="no-post-disclaimer"
       >

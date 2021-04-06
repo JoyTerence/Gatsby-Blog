@@ -190,6 +190,5 @@ input:focus {
     padding: 0.5em;
     font-weight: bold;
     background-color: white;
-    box-shadow: 5px 10px 10px #888888;
-    border-radius: 10px;
+    border-radius: 5px;
 }

@@ -40,7 +40,10 @@ const ProjectCard = ({ node }) => {
             boxShadow:
               colorMode === "dark"
                 ? "2px 2px 8px black"
-                : "2px 2px 8px lavender",
+                : "2px 2px 8px lightgrey",
+            '&:focus': {
+              outline: "none",
+            }
           })}
           className="projectCard"
           onMouseEnter={onHoverStart}

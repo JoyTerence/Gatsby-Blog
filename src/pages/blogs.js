@@ -158,6 +158,15 @@ const BlogPage = ({ data }) => {
               }}
               className="topics-container"
             >
+              {topics.map((singleTopic, index) => (
+                <AnimatedTopicButton
+                  key={index}
+                  selectedTopic={topic}
+                  topic={singleTopic}
+                  index={index}
+                  onTopicClick={onTopicClick}
+                />
+              ))}
               <div
                 role="button"
                 css={css({
@@ -176,22 +185,9 @@ const BlogPage = ({ data }) => {
                   {descorder ? <FaSortAmountDown /> : <FaSortAmountUp />}
                 </IconContext.Provider>
               </div>
-              {topics.map((singleTopic, index) => (
-                <AnimatedTopicButton
-                  key={index}
-                  selectedTopic={topic}
-                  topic={singleTopic}
-                  index={index}
-                  onTopicClick={onTopicClick}
-                />
-              ))}
             </div>
           </div>
-          {nodes.length === 0 ? (
-            <NoPost description={noPostDescription} />
-          ) : (
-            <div></div>
-          )}
+          {nodes.length === 0 && <NoPost description={noPostDescription} />}
           <div>
             {nodes
               .filter(function(node) {

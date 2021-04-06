@@ -33,7 +33,7 @@ const Blog = ({ node }) => {
               boxShadow:
                 colorMode === "dark"
                   ? "2px 2px 8px black"
-                  : "2px 2px 8px lavender",
+                  : "2px 2px 8px lightgrey",
             })}
             className="blog-container"
           >
@@ -43,8 +43,8 @@ const Blog = ({ node }) => {
                   {node.frontmatter.title}
                 </span>
               </div>
-              <div sx={{ color: "primary" }} className="desc-container">
-                <span>{node.frontmatter.description}</span>
+              <div className="desc-container">
+                <span sx={{ color: "primary", display: "block", fontSize: [0], lineHeight: 1.5 }}>{node.frontmatter.description}</span>
               </div>
               <div sx={{ color: "primary" }} className="tag-container">
                 {node.frontmatter.tags.map((tag, index) => (
