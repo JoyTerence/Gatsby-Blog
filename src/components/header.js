@@ -12,7 +12,7 @@ const Header = ({ siteTitle }) => {
   const [colorMode, setColorMode] = useColorMode()
 
   const headerColor = colorMode === "dark" ? "black" : "lavenderblush"
-  const shadowColor = colorMode === "dark" ? "" : "5px 6px 6px lightgrey"
+  const shadowColor = colorMode === "dark" ? "0px 3px 6px #121212" : "0px 3px 6px lightgrey"
 
   return (
     <React.Fragment>
