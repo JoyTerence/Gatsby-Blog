@@ -14,6 +14,16 @@ const ContactButtons = () => {
       }}
     >
       <AnimatedButtonSocial
+        type="linkedin"
+        fileDownload={false}
+        url={"https://www.linkedin.com/in/joyterencebarnes"}
+      >
+        {getIcon({
+          type: "linkedin",
+        })}{" "}
+        LinkedIn
+      </AnimatedButtonSocial>
+      <AnimatedButtonSocial
         type="github"
         fileDownload={false}
         url={"https://github.com/JoyTerence"}
