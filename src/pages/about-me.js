@@ -18,7 +18,7 @@ const AboutMePage = ({ data }) => {
   return (
     <React.Fragment>
       <HomeLayout>
-        <SEO title="Joy Barnes" keywords={[`portfolio`, `about-me`]} />
+        <SEO title="AboutMe" keywords={[`portfolio`, `about-me`]} />
         <div
           sx={{
             color: "primary",

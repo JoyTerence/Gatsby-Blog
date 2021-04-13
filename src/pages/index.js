@@ -21,7 +21,7 @@ const IndexPage = ({ data }) => {
     <React.Fragment>
       <HomeLayout>
         <SEO
-          title="Joy Barnes"
+          title="Home"
           keywords={[`portfolio`, `gatsby`, `application`, `react`]}
         />
         <div

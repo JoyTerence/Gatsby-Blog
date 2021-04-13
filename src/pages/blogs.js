@@ -189,17 +189,9 @@ const BlogPage = ({ data }) => {
           </div>
           {nodes.length === 0 && <NoPost description={noPostDescription} />}
           <div>
-            {nodes
-              .filter(function(node) {
-                if (node.node.fields.slug === "/aboutme/") {
-                  return false // Skip about-me page from being shown in blogs list
-                } else {
-                  return true
-                }
-              })
-              .map(({ node }) => (
-                <Blog key={node.id} node={node} />
-              ))}
+            {nodes.map(({ node }) => (
+              <Blog key={node.id} node={node} />
+            ))}
           </div>
         </div>
       </HomeLayout>
