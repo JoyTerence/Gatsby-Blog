@@ -4,7 +4,7 @@ description: You might have spent countless times looking out the vast horizon..
 date: '1995-01-19'
 image: ./horizon-thumbnail.jpg
 topic: Misc
-tags: ['trivia','math','COVID19 timepass']
+tags: ['trivia','math']
 ---
 
 We all have looked out the windows or have stood out in the open, immersing ourselves in the deep thoughts. The temporary period of time where you seem to have absolute command over your language while conversing with yourself. Fixing your gaze on the horizon, lost in your thoughts, while being the annoying hinderance to the random stranger out on his regular walks.
