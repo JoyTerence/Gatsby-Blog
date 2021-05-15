@@ -64,7 +64,7 @@ So, say we have two different domains:
 
 A simple nginx configuration as follows will direct all api calls to the backend.
 
-```config
+```unknown
 http{
     // upstream host
     upstream api {
