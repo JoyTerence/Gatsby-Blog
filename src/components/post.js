@@ -23,12 +23,12 @@ const Post = ({ post }) => {
         if (colorMode === "default") {
           item.children[0].style.background = "#f5f2f0"
 
-          if (item.children[0].children[0].className == "language-unknown") {
+          if (item.children[0].children[0].className === "language-unknown") {
             item.children[0].children[0].style.color = "black"
           }
         } else {
           item.children[0].style.background = "#383535"
-          if (item.children[0].children[0].className == "language-unknown") {
+          if (item.children[0].children[0].className === "language-unknown") {
             item.children[0].children[0].style.color = "ghostwhite"
           }
         }
