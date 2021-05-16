@@ -7,33 +7,35 @@ const Post = ({ post }) => {
   const colorMode = useColorMode()[0]
 
   // Some ugly hacks for theming inside md code
-  if (document.getElementsByClassName("token operator")[0]) {
-    document.getElementsByClassName("token operator")[0].style.background =
-      "none"
-  }
-  Array.from(
-    document.getElementsByTagName("pre")
-  ).forEach((item, index) => {
-    item.style.color = "inherit"
-  })
-
-  Array.from(document.getElementsByClassName("gatsby-highlight")).forEach(
-    (item, index) => {
-      if (colorMode === "default") {
-        item.children[0].style.background = "#f5f2f0"
-
-        if (item.children[0].children[0].className == "language-unknown") {
-          item.children[0].children[0].style.color = "black"
-        }
-      } else {
-        item.children[0].style.background = "#383535"
-        if (item.children[0].children[0].className == "language-unknown") {
-          item.children[0].children[0].style.color = "ghostwhite"
-        }
-      }
-      item.children[0].children[0].style.textShadow = "none"
+  React.useEffect(() => {
+    if (document.getElementsByClassName("token operator")[0]) {
+      document.getElementsByClassName("token operator")[0].style.background =
+        "none"
     }
-  )
+    Array.from(
+      document.getElementsByTagName("pre")
+    ).forEach((item, index) => {
+      item.style.color = "inherit"
+    })
+
+    Array.from(document.getElementsByClassName("gatsby-highlight")).forEach(
+      (item, index) => {
+        if (colorMode === "default") {
+          item.children[0].style.background = "#f5f2f0"
+
+          if (item.children[0].children[0].className == "language-unknown") {
+            item.children[0].children[0].style.color = "black"
+          }
+        } else {
+          item.children[0].style.background = "#383535"
+          if (item.children[0].children[0].className == "language-unknown") {
+            item.children[0].children[0].style.color = "ghostwhite"
+          }
+        }
+        item.children[0].children[0].style.textShadow = "none"
+      }
+    )
+  })
 
   return (
     <React.Fragment>
