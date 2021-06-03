@@ -69,7 +69,23 @@ const Timeline = () => {
             className="vertical-timeline-element--work"
             contentStyle={cardTheme}
             contentArrowStyle={arrowTheme}
-            date="2019 - present"
+            date="2021 - present"
+            iconStyle={{ ...iconTheme, color: "#e24f4f" }}
+            icon={<MdWork />}
+          >
+            <h3 className="vertical-timeline-element-title">
+              Senior Software Engineer
+            </h3>
+            <h5 className="vertical-timeline-element-subtitle">
+              Avaya, Bengaluru
+            </h5>
+            <p>CPaaS, Avaya Cloud Office</p>
+          </VerticalTimelineElement>
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={cardTheme}
+            contentArrowStyle={arrowTheme}
+            date="2019 - 2021"
             iconStyle={{ ...iconTheme, color: "#e24f4f" }}
             icon={<MdWork />}
           >
