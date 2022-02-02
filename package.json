@@ -29,7 +29,7 @@
     "kebab-hash": "^0.1.2",
     "lodash": "^4.17.21",
     "pngquant-bin": "^5.0.2",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.25.0",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-awesome-button": "^6.5.1",
