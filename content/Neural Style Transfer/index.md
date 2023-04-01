@@ -1,7 +1,7 @@
 ---
 title: Neural Style Transfer
 description: How does prism and other apps achieve style transfer in images?
-date: '2020-04-22'
+date: '2017-04-22'
 image: ./sketching.jpg
 topic: Tech
 tags: ['neural style transfer','ML','DL', 'neural networks', 'prisma']
